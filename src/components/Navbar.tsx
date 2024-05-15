@@ -1,7 +1,7 @@
-import React from "react";
-import { FaSearch } from "react-icons/fa";
 import { PiShoppingCartSimple } from "react-icons/pi";
-import { LiaSearchSolid } from "react-icons/lia";
+import { Navbar as Nav } from "flowbite-react";
+import Link from 'react-router-dom';
+import Logo from '../assets/vstore.svg'
 
 const MenuLinks = [
     {
@@ -16,37 +16,22 @@ const MenuLinks = [
     }
 ]
 
-const Navbar = () => {
+export const Navbar = () => {
     return (
-        <div className=" container mx-auto duration-200 relative z-40">
-            <div className="py-4">
-                <div className="flex items-center justify-between">
-                    <div className="flex gap-4 items-center">
-                        <a href="" className="">Viságio</a>
-                        <div className="hidden lg:block">
-                            <ul className="flex items-center gap-4">
-                                {
-                                    MenuLinks.map((data, index) =>(
-                                        <li key={index}>
-                                            <a href={data.link}
-                                            className="hover:bg-gray-100 py-2 rounded-md inline-block px-4 font-semibold text hover:text-black duration-200"
-                                        >{data.name}</a>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-5">
-                        <button>
-                            <PiShoppingCartSimple className="text-2xl" />
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Nav className="container mx-auto py-5" fluid rounded>
+            <Nav.Brand  href="">
+                <img src={Logo} className="mr-3 h-6 sm:h-9" alt="" />
+            </Nav.Brand>
+            <Nav.Toggle />
+            <Nav.Collapse>
+                {MenuLinks.map((link) => {
+                    return (
+                        <Nav.Link key={link.id} href={link.link} className="">
+                            <p className="text-gray-600 hover:text-black">{link.name}</p>
+                        </Nav.Link>
+                    )
+                })}
+            </Nav.Collapse>
+        </Nav>
     );
 }
-
-export default Navbar;
-  

@@ -1,96 +1,127 @@
 {
-    "catalog": [
-      {
-        "id": 1,
-        "name": "iPhone 13 Pro",
-        "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
-        "price": 999.00,
-        "category": "Eletrônicos",
-        "imageUrl": "https://files.tecnoblog.net/wp-content/uploads/2021/09/iphone-13-pro-produto-700x700.png",
-        "stock": 45
-      },
-      {
-        "id": 2,
-        "name": "MacBook Air M1",
-        "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
-        "price": 1249.00,
-        "category": "Eletrônicos",
-        "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
-        "stock": 23
-      },
-      {
-        "id": 3,
-        "name": "Apple Watch Series 7",
-        "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
-        "price": 399.00,
-        "category": "Acessórios",
-        "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
-        "stock": 68
-      },
-      {
-        "id": 4,
-        "name": "AirPods Pro",
-        "description": "Os AirPods Pro oferecem cancelamento de ruído ativo, modo ambiente e ajuste personalizável.",
-        "price": 249.00,
-        "category": "Acessórios",
-        "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
-        "stock": 120
-      },
-      {
-        "id": 5,
-        "name": "Canon EOS R5",
-        "description": "A câmera Canon EOS R5 possui sensor de 45MP, gravação 8K e estabilização de imagem.",
-        "price": 3899.00,
-        "category": "Eletrônicos",
-        "imageUrl": "https://i1.adis.ws/i/canon/eos-r5_front_rf24-105mmf4lisusm_square_32c26ad194234d42b3cd9e582a21c99b",
-        "stock": 15
-      },
-      {
-        "id": 6,
-        "name": "Microfone de mesa ATR4",
-        "description": "Microfone condensador para mesa de computador.",
-        "price": 299.99,
-        "category": "Eletrônicos",
-        "imageUrl": "https://www.audio-technica.com/pt-br/media/catalog/product/a/t/atr4750_01.png",
-        "stock": 34
-      },
-      {
-        "id": 7,
-        "name": "Cadeira Gamer DXRacer",
-        "description": "Cadeira gamer ergonômica com suporte lombar e ajuste de altura.",
-        "price": 499.00,
-        "category": "Móveis",
-        "imageUrl": "https://ds92okzpvwldu.cloudfront.net/Custom/Content/Products/24/26/2426355_cadeira-dxracer-f-series-p08nw_m3_637878076946363675.png",
-        "stock": 27
-      },
-      {
-        "id": 8,
-        "name": "Teclado Mecânico Razer BlackWidow",
-        "description": "Teclado mecânico RGB com switches Razer Green, ideal para gamers.",
-        "price": 139.99,
-        "category": "Periféricos",
-        "imageUrl": "https://cdn.awsli.com.br/600x1000/1945/1945193/produto/258700723/1--1---1--kxo80vbulc.png",
-        "stock": 78
-      },
-      {
-        "id": 9,
-        "name": "Mouse Gamer Logitech G502",
-        "description": "Mouse gamer com DPI ajustável, 11 botões programáveis e iluminação RGB.",
-        "price": 79.99,
-        "category": "Periféricos",
-        "imageUrl": "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/gallery/g502x-plus-gallery-1-black.png?v=1",
-        "stock": 102
-      },
-      {
-        "id": 10,
-        "name": "Monitor Ultrawide Samsung",
-        "description": "Monitor ultrawide de 34 polegadas com resolução QHD e tecnologia HDR.",
-        "price": 799.99,
-        "category": "Eletrônicos",
-        "imageUrl": "https://images.samsung.com/is/image/samsung/br-ultra-wide-c34f791-lc34f791wqlxzd-frontwhite-72942945?$650_519_PNG$",
-        "stock": 11
-      }
-      
-    ]
-  }
-  
+  "catalog": [
+    {
+      "id": 1,
+      "name": "iPhone 13 Pro",
+      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
+      "price": 999.00,
+      "category": "Eletrônicos",
+      "imageUrl": "https://files.tecnoblog.net/wp-content/uploads/2021/09/iphone-13-pro-produto-700x700.png",
+      "stock": 45
+    },
+    {
+      "id": 2,
+      "name": "MacBook Air M1",
+      "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
+      "price": 1249.00,
+      "category": "Eletrônicos",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
+      "stock": 23
+    },
+    {
+      "id": 3,
+      "name": "Apple Watch Series 7",
+      "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
+      "price": 399.00,
+      "category": "Acessórios",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
+      "stock": 68
+    },
+    {
+      "id": 4,
+      "name": "AirPods Pro",
+      "description": "Os AirPods Pro oferecem cancelamento de ruído ativo, modo ambiente e ajuste personalizável.",
+      "price": 249.00,
+      "category": "Acessórios",
+      "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
+      "stock": 120
+    },
+    {
+      "id": 5,
+      "name": "Canon EOS R5",
+      "description": "A câmera Canon EOS R5 possui sensor de 45MP, gravação 8K e estabilização de imagem.",
+      "price": 3899.00,
+      "category": "Eletrônicos",
+      "imageUrl": "https://i1.adis.ws/i/canon/eos-r5_front_rf24-105mmf4lisusm_square_32c26ad194234d42b3cd9e582a21c99b",
+      "stock": 15
+    },
+    {
+      "id": 6,
+      "name": "Microfone de mesa ATR4",
+      "description": "Microfone condensador para mesa de computador.",
+      "price": 299.99,
+      "category": "Eletrônicos",
+      "imageUrl": "https://www.audio-technica.com/pt-br/media/catalog/product/a/t/atr4750_01.png",
+      "stock": 34
+    },
+    {
+      "id": 7,
+      "name": "Cadeira Gamer DXRacer",
+      "description": "Cadeira gamer ergonômica com suporte lombar e ajuste de altura.",
+      "price": 499.00,
+      "category": "Móveis",
+      "imageUrl": "https://ds92okzpvwldu.cloudfront.net/Custom/Content/Products/24/26/2426355_cadeira-dxracer-f-series-p08nw_m3_637878076946363675.png",
+      "stock": 27
+    },
+    {
+      "id": 8,
+      "name": "Teclado Mecânico Razer BlackWidow",
+      "description": "Teclado mecânico RGB com switches Razer Green, ideal para gamers.",
+      "price": 139.99,
+      "category": "Periféricos",
+      "imageUrl": "https://cdn.awsli.com.br/600x1000/1945/1945193/produto/258700723/1--1---1--kxo80vbulc.png",
+      "stock": 78
+    },
+    {
+      "id": 9,
+      "name": "Mouse Gamer Logitech G502",
+      "description": "Mouse gamer com DPI ajustável, 11 botões programáveis e iluminação RGB.",
+      "price": 79.99,
+      "category": "Periféricos",
+      "imageUrl": "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/gallery/g502x-plus-gallery-1-black.png?v=1",
+      "stock": 102
+    },
+    {
+      "id": 10,
+      "name": "Monitor Ultrawide Samsung",
+      "description": "Monitor ultrawide de 34 polegadas com resolução QHD e tecnologia HDR.",
+      "price": 799.99,
+      "category": "Eletrônicos",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/br-ultra-wide-c34f791-lc34f791wqlxzd-frontwhite-72942945?$650_519_PNG$",
+      "stock": 11
+    }
+  ],
+  "promotions": [
+    {
+      "id": 11,
+      "name": "PSVR2",
+      "description": "Óculos VR",
+      "price": 985.99,
+      "category": "Eletrônicos",
+      "imageUrl": "https://shopmundodigital.com.br/cdn/shop/products/PSVR-2-4.png?v=1681905613&width=2048",
+      "stock": 11
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "link": "https://images.unsplash.com/photo-1604212666403-8af98b2081e4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 2,
+      "link": "https://images.unsplash.com/photo-1616400619175-5beda3a17896?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 3,
+      "link": "https://images.unsplash.com/photo-1636487658582-96efd1693bcb?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 4,
+      "link": "https://images.unsplash.com/photo-1530319067432-f2a729c03db5?q=80&w=1989&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 5,
+      "link": "https://images.unsplash.com/photo-1553179459-4514c0f52f41?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
+}
