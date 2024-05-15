@@ -1,5 +1,7 @@
 import { TbShoppingCartPlus } from "react-icons/tb";
 import { ProductsProps } from "../types/ProductsInterface";
+import { Link } from "react-router-dom";
+import apiUrls from "../config/apiUrls";
 
 
 export const Product = ({ product }: ProductsProps) => {
@@ -7,11 +9,13 @@ export const Product = ({ product }: ProductsProps) => {
   const { id, name, description, price, category, imageUrl, stock } = product;
 
   return (
-    <div key={id} className='flex flex-col gap-2 hover:cursor-pointer' >
+    <div key={id} className='flex flex-col gap-2 ' >
 
-      <div className='w-full h-[400px] flex items-center justify-center rounded-lg bg-stone-200'>
-        <img className='max-h-72 hover:scale-90 duration-300 ease-in-out' src={imageUrl} alt="" />
-      </div>
+      <Link to={`/catalog/${id}`}>
+        <div className='w-full hover:cursor-pointer h-[400px] flex items-center justify-center rounded-lg bg-stone-200'>
+          <img className='max-h-72 hover:scale-90 duration-300 ease-in-out' src={imageUrl} alt="" />
+        </div>
+      </Link>
 
       <div className='flex justify-between items-center'>
         <div>

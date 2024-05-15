@@ -1,6 +1,7 @@
 import { Carousel } from "flowbite-react";
 import { ProductPromo } from "./ProductPromo";
 import { useEffect, useState } from "react";
+import apiUrls from "../config/apiUrls";
 
 interface BannerProperties {
     id: number;
@@ -15,7 +16,7 @@ export const Header = () => {
     useEffect(() => {
         const fetchBanners = async () => {
             try {
-                const response = await fetch('http://localhost:5000/banners');
+                const response = await fetch(apiUrls.banners);
                 const data = await response.json();
                 setBanners(data);
             } catch (error) {
@@ -38,7 +39,7 @@ export const Header = () => {
                         <div className="h-full">
                             <Carousel className=''>
                                 {banners.map((banner) => {
-                                    return(
+                                    return (
                                         <img key={banner.id} className="w-full h-full object-cover" src={banner.link} alt="..." />
                                     )
                                 })}
@@ -48,11 +49,11 @@ export const Header = () => {
                     <div className='bg-stone-200 hidden lg:flex lg:flex-col lg:col-span-1 rounded-lg'>
                         <ProductPromo
                             id={11}
-                            imageUrl={"https://gmedia.playstation.com/is/image/SIEPDC/PSVR2-thumbnail-01-en-22feb22?$facebook$"} 
-                            name={"PSVR2"} 
-                            description={"Óculos de realidade virtual"} 
-                            category={"Eletrônicos"} 
-                            price={1.500} 
+                            imageUrl={"https://gmedia.playstation.com/is/image/SIEPDC/PSVR2-thumbnail-01-en-22feb22?$facebook$"}
+                            name={"PSVR2"}
+                            description={"Óculos de realidade virtual"}
+                            category={"Eletrônicos"}
+                            price={1.500}
                             stock={10}
                         />
                     </div>

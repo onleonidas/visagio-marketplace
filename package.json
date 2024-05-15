@@ -11,6 +11,7 @@
     "start": "json-server --watch ./src/api/db.json --port 5000"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.9.0",
     "json-server": "1.0.0-beta.0",

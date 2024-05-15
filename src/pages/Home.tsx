@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Product } from '../components/Product';
 import { Navbar } from '../components/Navbar';
 import { Header } from '../components/Header';
+import apiUrls from '../config/apiUrls';
 
 interface ProductProperties {
     id: number;
@@ -20,7 +21,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/catalog');
+                const response = await fetch(apiUrls.products);
                 const data = await response.json();
                 setProducts(data);
             } catch (error) {
