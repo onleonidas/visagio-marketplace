@@ -12,7 +12,8 @@ export const Product = ({ product }: ProductsProps) => {
     <div key={id} className='flex flex-col gap-2 ' >
 
       <Link to={`/catalog/${id}`}>
-        <div className='w-full hover:cursor-pointer h-[400px] flex items-center justify-center rounded-lg bg-stone-200'>
+        <div className='w-full hover:cursor-pointer h-[400px] flex
+          items-center justify-center rounded-lg bg-stone-200'>
           <img className='max-h-72 hover:scale-90 duration-300 ease-in-out' src={imageUrl} alt="" />
         </div>
       </Link>

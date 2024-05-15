@@ -14,7 +14,7 @@ export const ProductPromo = ({ imageUrl, name, description, category, price }: P
                     <h2 className='font-semibold md:text-[20px] lg:text-2xl'>{name}</h2>
                     <p className='text-md md:text-sm text-gray-600'>{description}</p>
                 </div>
-                <Button color={"dark"} pill className=" bg-black flex hover:bg-gray-500 w-2/4  items-center">
+                <Button color={"dark"} pill className=" bg-black flex hover:bg-gray-500 w-2/4 items-center">
                     Ver mais
                 </Button>   
             </div>

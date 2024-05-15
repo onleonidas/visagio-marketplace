@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductsProps } from "../types/ProductsInterface";
+import { ProductInfos } from "../components/ProductInfos";
 import apiUrls from "../config/apiUrls";
 
-const ProductDetails = () => {
+const ProductPage = () => {
   const [product, setProduct] = useState<ProductsProps["product"]>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -32,11 +33,19 @@ const ProductDetails = () => {
       {error && <p>{error}</p>}
       {!loading && !error && product &&
         <>
-          <div>{product.name}</div>
+          <div className="container mx-auto md:w-[90vw] sm:w-[900vw] lg:w-[80vw] h-[600px]
+          my-5 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+            <div className="bg-stone-200 rounded-lg w-full h-full flex items-center justify-center">
+              <img className="max-h-[600px]" src={product.imageUrl} alt="" />
+            </div>
+            <div className="p-5">
+              <ProductInfos product={product}/>
+            </div>
+          </div>
         </>
       }
     </div>
   );
 };
 
-export default ProductDetails;
+export default ProductPage;

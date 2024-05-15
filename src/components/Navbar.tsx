@@ -1,6 +1,4 @@
-import { PiShoppingCartSimple } from "react-icons/pi";
 import { Navbar as Nav } from "flowbite-react";
-import Link from 'react-router-dom';
 import Logo from '../assets/vstore.svg'
 
 const MenuLinks = [
@@ -27,7 +25,9 @@ export const Navbar = () => {
                 {MenuLinks.map((link) => {
                     return (
                         <Nav.Link key={link.id} href={link.link} className="">
-                            <p className="text-gray-600 hover:text-black">{link.name}</p>
+                            <p className="text-gray-600 hover:text-black">
+                                {link.name}
+                            </p>
                         </Nav.Link>
                     )
                 })}
@@ -35,3 +35,4 @@ export const Navbar = () => {
         </Nav>
     );
 }
+

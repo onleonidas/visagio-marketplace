@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../components/Product';
-import { Navbar } from '../components/Navbar';
 import { Header } from '../components/Header';
 import apiUrls from '../config/apiUrls';
 
@@ -34,11 +33,11 @@ const Home = () => {
 
     return (
         <>
-            <Navbar />
             <Header />
             <section>
                 <div className='container mx-auto'>
-                    <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4'>
+                    <div className='grid sm:grid-cols-1 md:grid-cols-2
+                    lg:grid-cols-4 xl:grid-cols-4 gap-4'>
                         {products.map((product) => {
                             return (
                                 <Product key={product.id} product={product} />

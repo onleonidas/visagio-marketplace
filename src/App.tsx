@@ -1,21 +1,12 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from "./pages/Home";
-import ProductDetails from "./pages/ProductDetails";
-
-//Import pages
-
+import { Outlet } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
 
 export function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalog/:id" element={<ProductDetails />} />
-        </Routes>
-      </BrowserRouter>
-
-    </>
+    <div className='App'>
+      <Navbar />
+      <Outlet />
+    </div>
   );
 }
 
