@@ -1,16 +1,16 @@
 import { TbShoppingCartPlus } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
-import { CartService } from "../services/cartService";
 import { ProductsProps } from '../types/ProductsInterface';
+import { useCartService } from "../services/useCartSerivce";
 
 export const Product = ({ product }: ProductsProps) => {
   const { id, name, price, category, imageUrl } = product;
-
   const { addToast } = useToast();
+  const { addToCart } = useCartService();
 
   const handleAddToCart = (product: ProductsProps["product"]) => {
-    CartService.addToCart(product, addToast);
+    addToCart(product, addToast);
   };
 
   return (
@@ -28,7 +28,7 @@ export const Product = ({ product }: ProductsProps) => {
           <p className='text-sm text-gray-400'>{category}</p>
         </div>
         <button onClick={() => handleAddToCart(product)}
-        className='hover:shadow-md border text-[19px] flex items-center justify-center rounded-lg h-12 w-12 text-black'>
+          className='hover:shadow-md border text-[19px] flex items-center justify-center rounded-lg h-12 w-12 text-black'>
           <TbShoppingCartPlus />
         </button>
       </div>

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { ProductsProps } from "../types/ProductsInterface";
 import apiUrls from "../config/apiUrls";
-import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { HiOutlineTrash } from "react-icons/hi";
+import { useCartService } from "../services/useCartSerivce";
+import { CartItemProps } from "../types/CartItemInterface";
+
 
 const ShoppingCart = () => {
 
-    const [cart, setCart] = useState<ProductsProps["product"][]>([]);
-
+    const [cart, setCart] = useState<CartItemProps[]>([]);
+    const { removeFromCart, updateCartItemQuantity } = useCartService();
+    
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -20,7 +23,15 @@ const ShoppingCart = () => {
         };
 
         fetchProducts();
-    }, []);
+    }, [cart]);
+
+    const handleAddToCart = (id: number) => {
+        removeFromCart(id);
+    };
+
+    const handleQuantityChange = (item: CartItemProps, quantity: number) => {
+        updateCartItemQuantity(item, quantity);
+    };
 
     return (
         <>
@@ -31,7 +42,7 @@ const ShoppingCart = () => {
                 <div className="col-span-2">
                     {cart.map((item) => {
                         return (
-                            <div className="flex items-center justify-between gap-5 mt-5 border p-5 rounded-lg bg-gray-50">
+                            <div key={item.id} className="flex items-center justify-between gap-5 mt-5 border p-5 rounded-lg bg-gray-50">
                                 <div className="flex items-center gap-5">
                                     <div>
                                         <img src={item.imageUrl} className="max-h-36 max-w-36 border bg-white rounded-lg p-5" alt="" />
@@ -40,17 +51,25 @@ const ShoppingCart = () => {
                                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                             <p>{item.name}</p>
                                         </h5>
-                                        <p className="font-normal text-gray-700 dark:text-gray-400">
+                                        <div className="font-normal text-gray-700 dark:text-gray-400">
                                             <p className="w-72">{item.description}</p>
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div>
-                                    <TextInput type="number" name="" id="" placeholder="Quantidade" />
+                                <div className="flex gap-5 items-center">
+                                    <div className="flex gap-5 items-center">
+                                    <input
+                                        type="number"
+                                        defaultValue={item.quantity}
+                                        min="1"
+                                        onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))}
+                                    />
+                                    </div>
+                                    <p className="text-sm font-semibold">R$: {item.unit_price * item.quantity}</p>
                                 </div>
 
-                                <Button color="dark">
+                                <Button onClick={() => handleAddToCart(item.id)} color="dark">
                                     <HiOutlineTrash className="mr-2 h-5 w-5" />
                                     Remover
                                 </Button>
