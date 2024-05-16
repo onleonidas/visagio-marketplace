@@ -7,6 +7,7 @@ export interface ProductsProps {
         category: string;
         imageUrl: string;
         stock: number;
+        quantity?: number
     }
 
 }

@@ -17,6 +17,7 @@ const MenuLinks = [
 ]
 
 export const Navbar = () => {
+    
     return (
         <Nav className="container mx-auto py-5" fluid rounded>
             <Nav.Brand href="">

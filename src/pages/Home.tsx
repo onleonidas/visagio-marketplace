@@ -3,20 +3,11 @@ import { Product } from '../components/Product';
 import { Header } from '../components/Header';
 import apiUrls from '../config/apiUrls';
 import { ToastProvider } from '../context/ToastContext';
-
-interface ProductProperties {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    category: string;
-    imageUrl: string;
-    stock: number;
-}
+import { ProductsProps } from '../types/ProductsInterface';
 
 const Home = () => {
 
-    const [products, setProducts] = useState<ProductProperties[]>([]);
+    const [products, setProducts] = useState<ProductsProps["product"][]>([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -38,8 +29,8 @@ const Home = () => {
                 <Header />
                 <section>
                     <div className='container mx-auto'>
-                        <div className='grid sm:grid-cols-1 md:grid-cols-2
-                    lg:grid-cols-4 xl:grid-cols-4 gap-4'>
+                        <div
+                            className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4'>
                             {products.map((product) => {
                                 return (
                                     <Product key={product.id} product={product} />
