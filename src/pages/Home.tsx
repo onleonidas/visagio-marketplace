@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Product } from '../components/Product';
 import { Header } from '../components/Header';
 import apiUrls from '../config/apiUrls';
+import { ToastProvider } from '../context/ToastContext';
 
 interface ProductProperties {
     id: number;
@@ -33,19 +34,21 @@ const Home = () => {
 
     return (
         <>
-            <Header />
-            <section>
-                <div className='container mx-auto'>
-                    <div className='grid sm:grid-cols-1 md:grid-cols-2
+            <ToastProvider>
+                <Header />
+                <section>
+                    <div className='container mx-auto'>
+                        <div className='grid sm:grid-cols-1 md:grid-cols-2
                     lg:grid-cols-4 xl:grid-cols-4 gap-4'>
-                        {products.map((product) => {
-                            return (
-                                <Product key={product.id} product={product} />
-                            );
-                        })}
+                            {products.map((product) => {
+                                return (
+                                    <Product key={product.id} product={product} />
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </ToastProvider>
         </>
     );
 };

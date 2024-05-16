@@ -1,11 +1,13 @@
-import { Navbar as Nav } from "flowbite-react";
+import { Button, Navbar as Nav } from "flowbite-react";
 import Logo from '../assets/vstore.svg'
+import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const MenuLinks = [
     {
         id: 1,
         name: "Home",
-        link: "/#"
+        link: "/home"
     },
     {
         id: 2,
@@ -17,10 +19,12 @@ const MenuLinks = [
 export const Navbar = () => {
     return (
         <Nav className="container mx-auto py-5" fluid rounded>
-            <Nav.Brand  href="">
+            <Nav.Brand href="">
                 <img src={Logo} className="mr-3 h-6 sm:h-9" alt="" />
             </Nav.Brand>
+
             <Nav.Toggle />
+
             <Nav.Collapse>
                 {MenuLinks.map((link) => {
                     return (
@@ -32,6 +36,17 @@ export const Navbar = () => {
                     )
                 })}
             </Nav.Collapse>
+
+            <Nav.Collapse>
+                <Link to="/shoppingcart">
+                    <div className="flex items-center justify-center">
+                        <PiShoppingCartSimpleBold className="text-[22px] mx-2" />
+                    </div>
+                </Link>
+            </Nav.Collapse>
+
+
+
         </Nav>
     );
 }
