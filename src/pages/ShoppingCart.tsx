@@ -2,16 +2,25 @@ import { useEffect, useState } from "react";
 import apiUrls from "../config/apiUrls";
 import { CartItemProps } from "../types/CartItemInterface";
 import { CartProduct } from "../components/CartProduct";
-import { Button } from "flowbite-react";
-import { ConfirmPayment } from "../components/ConfirmPayment";
+import { Alert, Button } from "flowbite-react";
+import { ConfirmPaymentModal } from "../components/ConfirmPaymentModal";
+import { EmptyCart } from "../components/EmptyCart";
+import { HiInformationCircle } from "react-icons/hi";
 
 const ShoppingCart = () => {
     const [cart, setCart] = useState<CartItemProps[]>([]);
     const [totalValue, setTotalValue] = useState(0);
     const [openModal, setOpenModal] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleConfirmPurchase = () => {
-        setOpenModal(true);
+        if(cart.length === 0) {
+            setShowAlert(true);
+            
+        }
+        else{
+            setOpenModal(true);
+        }
     };
 
     useEffect(() => {
@@ -37,12 +46,13 @@ const ShoppingCart = () => {
     return (
         <div className="container mx-auto grid grid-cols-7 gap-5">
             <div className="md:col-span-4 col-span-7">
+                {cart.length === 0 && <EmptyCart />}
                 {cart.map((product) => (
                     <CartProduct key={product.id} product={product} />
                 ))}
             </div>
 
-            <div className="h-auto md:col-span-3 col-span-7 bg-white border p-5 rounded-lg">
+            <div className="h-fit md:col-span-3 col-span-7 bg-white border p-5 rounded-lg">
                 <div className="bg-black h-[200px] mb-5 rounded-lg p-5 flex items-center">
                     <div>
                         <h2 className="text-1xl font-semibold text-gray-400">Valor total</h2>
@@ -50,8 +60,15 @@ const ShoppingCart = () => {
                     </div>
                 </div>
                 <Button className="w-full" color={"dark"} onClick={handleConfirmPurchase}>Confirmar compra</Button>
+
+                {showAlert && (
+                    <Alert color="failure" className="mt-5" icon={HiInformationCircle} onDismiss={() => setShowAlert(false)}>
+                        <span className="font-medium"> O carrinho está vazio. Adicione itens antes de confirmar a compra.</span>
+                    </Alert>
+                )}
+
             </div>
-            <ConfirmPayment openModal={openModal} onClose={() => setOpenModal(false)} />
+            <ConfirmPaymentModal openModal={openModal} onClose={() => setOpenModal(false)} />
         </div>
     );
 };

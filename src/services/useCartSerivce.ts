@@ -23,6 +23,20 @@ export const useCartService = () => {
     fetchCartItems();
   }, []);
 
+  const clearCart = async () => {
+    try {
+
+      for (const item of cartItems) {
+        await removeFromCart(item.id);
+      }
+
+      setCartItems([]);
+
+    } catch (error) {
+      console.error('Erro ao remover todos os itens do carrinho:', error);
+    }
+  }
+
 
   //Função para adicionar um item ao carrinho
   const addToCart = async (product: ProductsProps["product"], addToast: (message: string) => void) => {
@@ -124,5 +138,5 @@ export const useCartService = () => {
     }
   };
 
-  return { cartItems, addToCart, removeFromCart, updateCartItemQuantity };
+  return { cartItems, addToCart, removeFromCart, updateCartItemQuantity, clearCart };
 };

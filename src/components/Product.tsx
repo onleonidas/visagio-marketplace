@@ -4,12 +4,12 @@ import { useToast } from "../context/ToastContext";
 import { ProductsProps } from '../types/ProductsInterface';
 import { useCartService } from "../services/useCartSerivce";
 
-
 export const Product = ({ product }: ProductsProps) => {
   const { id, name, price, category, imageUrl } = product;
   const { addToast } = useToast();
   const { addToCart } = useCartService();
 
+  //Adicionar produto ao carrinho
   const handleAddToCart = (product: ProductsProps["product"]) => {
     addToCart(product, addToast);
   };

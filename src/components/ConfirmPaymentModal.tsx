@@ -1,21 +1,28 @@
 import { Button, Modal } from "flowbite-react";
 import TextInput from "./TextInput";
 import { useNavigate } from "react-router-dom";
+import { useCartService } from "../services/useCartSerivce";
 
 interface ModalProps {
     openModal: boolean;
     onClose: any
 };
 
-export const ConfirmPayment = ({ openModal, onClose }: ModalProps) => {
+export const ConfirmPaymentModal = ({ openModal, onClose }: ModalProps) => {
 
     const navigate = useNavigate();
+    const { clearCart } = useCartService();
 
-    return (
+    const handleConfirmPayment = async () => {
+        navigate("/paymentConfirmed")
+        await clearCart();
+    }
+
+    return (  
         <Modal show={openModal} onClose={onClose}>
             <Modal.Header>Confirmação dos dados de pagamento</Modal.Header>
             <Modal.Body>
-                <form className="flex flex-col gap-5" onSubmit={() => navigate("/paymentConfirmed")}>
+                <form className="flex flex-col gap-5" onSubmit={handleConfirmPayment}>
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="text-sm font-semibold">Número do cartão</label>
                         <TextInput type="card" className="rounded border" placeholder="0000 0000 0000 0000" maskType="card" required />
