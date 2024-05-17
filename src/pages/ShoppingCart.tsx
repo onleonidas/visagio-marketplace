@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import apiUrls from "../config/apiUrls";
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
-import { HiOutlineTrash } from "react-icons/hi";
-import { useCartService } from "../services/useCartSerivce";
 import { CartItemProps } from "../types/CartItemInterface";
-
+import { CartProduct } from "../components/CartProduct";
+import { Button } from "flowbite-react";
+import { ConfirmPayment } from "../components/ConfirmPayment";
 
 const ShoppingCart = () => {
-
     const [cart, setCart] = useState<CartItemProps[]>([]);
-    const { removeFromCart, updateCartItemQuantity } = useCartService();
-    
+    const [totalValue, setTotalValue] = useState(0);
+    const [openModal, setOpenModal] = useState(false);
+
+    const handleConfirmPurchase = () => {
+        setOpenModal(true);
+    };
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -22,86 +25,34 @@ const ShoppingCart = () => {
             }
         };
 
+        const calculateTotalValue = () => {
+            const total = cart.reduce((acc, product) => acc + (product.unit_price * product.quantity), 0);
+            setTotalValue(total);
+        };
+
         fetchProducts();
+        calculateTotalValue();
     }, [cart]);
 
-    const handleAddToCart = (id: number) => {
-        removeFromCart(id);
-    };
-
-    const handleQuantityChange = (item: CartItemProps, quantity: number) => {
-        updateCartItemQuantity(item, quantity);
-    };
-
     return (
-        <>
-
-            <div className="container mx-auto grid grid-cols-3">
-
-
-                <div className="col-span-2">
-                    {cart.map((item) => {
-                        return (
-                            <div key={item.id} className="flex items-center justify-between gap-5 mt-5 border p-5 rounded-lg bg-gray-50">
-                                <div className="flex items-center gap-5">
-                                    <div>
-                                        <img src={item.imageUrl} className="max-h-36 max-w-36 border bg-white rounded-lg p-5" alt="" />
-                                    </div>
-                                    <div>
-                                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                            <p>{item.name}</p>
-                                        </h5>
-                                        <div className="font-normal text-gray-700 dark:text-gray-400">
-                                            <p className="w-72">{item.description}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="flex gap-5 items-center">
-                                    <div className="flex gap-5 items-center">
-                                    <input
-                                        type="number"
-                                        defaultValue={item.quantity}
-                                        min="1"
-                                        onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))}
-                                    />
-                                    </div>
-                                    <p className="text-sm font-semibold">R$: {item.unit_price * item.quantity}</p>
-                                </div>
-
-                                <Button onClick={() => handleAddToCart(item.id)} color="dark">
-                                    <HiOutlineTrash className="mr-2 h-5 w-5" />
-                                    Remover
-                                </Button>
-
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div className="px-10">
-                    <form className="flex max-w-md flex-col gap-4">
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="email1" value="Your email" />
-                            </div>
-                            <TextInput id="email1" type="email" placeholder="name@flowbite.com" required />
-                        </div>
-                        <div>
-                            <div className="mb-2 block">
-                                <Label htmlFor="password1" value="Your password" />
-                            </div>
-                            <TextInput id="password1" type="password" required />
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Checkbox id="remember" />
-                            <Label htmlFor="remember">Remember me</Label>
-                        </div>
-                        <Button color={"dark"} type="submit">Submit</Button>
-                    </form>
-                </div>
+        <div className="container mx-auto grid grid-cols-7 gap-5">
+            <div className="md:col-span-4 col-span-7">
+                {cart.map((product) => (
+                    <CartProduct key={product.id} product={product} />
+                ))}
             </div>
-        </>
+
+            <div className="h-auto md:col-span-3 col-span-7 bg-white border p-5 rounded-lg">
+                <div className="bg-black h-[200px] mb-5 rounded-lg p-5 flex items-center">
+                    <div>
+                        <h2 className="text-1xl font-semibold text-gray-400">Valor total</h2>
+                        <h2 className="text-4xl font-bold text-white">R$ {totalValue.toFixed(2)}</h2>
+                    </div>
+                </div>
+                <Button className="w-full" color={"dark"} onClick={handleConfirmPurchase}>Confirmar compra</Button>
+            </div>
+            <ConfirmPayment openModal={openModal} onClose={() => setOpenModal(false)} />
+        </div>
     );
 };
 

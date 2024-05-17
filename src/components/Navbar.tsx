@@ -1,7 +1,8 @@
-import { Button, Navbar as Nav } from "flowbite-react";
+import { Navbar as Nav } from "flowbite-react";
 import Logo from '../assets/vstore.svg'
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
+
 
 const MenuLinks = [
     {

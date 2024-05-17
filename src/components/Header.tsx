@@ -3,6 +3,7 @@ import { ProductPromo } from "./ProductPromo";
 import { useEffect, useState } from "react";
 import apiUrls from "../config/apiUrls";
 
+
 interface BannerProperties {
     id: number;
     link: string;

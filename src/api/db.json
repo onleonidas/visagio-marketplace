@@ -126,12 +126,36 @@
   ],
   "cart": [
     {
+      "id": "4",
+      "name": "AirPods Pro",
+      "unit_price": 1000,
+      "description": "Os AirPods Pro oferecem cancelamento de ruído ativo, modo ambiente e ajuste personalizável.",
+      "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
+      "quantity": 6
+    },
+    {
       "id": "3",
       "name": "Apple Watch Series 7",
       "unit_price": 1000,
       "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
-      "quantity": 8
+      "quantity": 6
+    },
+    {
+      "id": "2",
+      "name": "MacBook Air M1",
+      "unit_price": 1000,
+      "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
+      "quantity": 2
+    },
+    {
+      "id": "1",
+      "name": "iPhone 13 Pro",
+      "unit_price": 1000,
+      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
+      "imageUrl": "https://files.tecnoblog.net/wp-content/uploads/2021/09/iphone-13-pro-produto-700x700.png",
+      "quantity": 1
     }
   ]
 }

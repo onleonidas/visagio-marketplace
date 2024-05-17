@@ -5,7 +5,6 @@ import apiUrls from '../config/apiUrls';
 
 export const useCartService = () => {
   const [cartItems, setCartItems] = useState<CartItemProps[]>([]);
-  const [cartItem, setCartItem] = useState<CartItemProps>();
 
   useEffect(() => {
     const fetchCartItems = async () => {
