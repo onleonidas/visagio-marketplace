@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductsProps } from "../types/ProductsInterface";
 import { ProductInfos } from "../components/ProductInfos";
-import apiUrls from "../config/apiUrls";
+import { apiUrls } from "../config/apiUrls";
 
 const ProductPage = () => {
   const [product, setProduct] = useState<ProductsProps["product"]>();

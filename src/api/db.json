@@ -4,7 +4,7 @@
       "id": "1",
       "name": "iPhone 13 Pro",
       "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
-      "price": 1000,
+      "price": 9499,
       "category": "Eletrônicos",
       "imageUrl": "https://files.tecnoblog.net/wp-content/uploads/2021/09/iphone-13-pro-produto-700x700.png",
       "stock": 45
@@ -13,7 +13,7 @@
       "id": "2",
       "name": "MacBook Air M1",
       "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
-      "price": 1000,
+      "price": 10499,
       "category": "Eletrônicos",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
       "stock": 23
@@ -22,7 +22,7 @@
       "id": "3",
       "name": "Apple Watch Series 7",
       "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
-      "price": 1000,
+      "price": 3599,
       "category": "Acessórios",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
       "stock": 68
@@ -31,7 +31,7 @@
       "id": "4",
       "name": "AirPods Pro",
       "description": "Os AirPods Pro oferecem cancelamento de ruído ativo, modo ambiente e ajuste personalizável.",
-      "price": 1000,
+      "price": 2299,
       "category": "Acessórios",
       "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
       "stock": 120
@@ -40,7 +40,7 @@
       "id": "5",
       "name": "Canon EOS R5",
       "description": "A câmera Canon EOS R5 possui sensor de 45MP, gravação 8K e estabilização de imagem.",
-      "price": 1000,
+      "price": 27999,
       "category": "Eletrônicos",
       "imageUrl": "https://i1.adis.ws/i/canon/eos-r5_front_rf24-105mmf4lisusm_square_32c26ad194234d42b3cd9e582a21c99b",
       "stock": 15
@@ -49,7 +49,7 @@
       "id": "6",
       "name": "Microfone de mesa ATR4",
       "description": "Microfone condensador para mesa de computador.",
-      "price": 1000,
+      "price": 299,
       "category": "Eletrônicos",
       "imageUrl": "https://www.audio-technica.com/pt-br/media/catalog/product/a/t/atr4750_01.png",
       "stock": 34
@@ -58,7 +58,7 @@
       "id": "7",
       "name": "Cadeira Gamer DXRacer",
       "description": "Cadeira gamer ergonômica com suporte lombar e ajuste de altura.",
-      "price": 1000,
+      "price": 1999,
       "category": "Móveis",
       "imageUrl": "https://ds92okzpvwldu.cloudfront.net/Custom/Content/Products/24/26/2426355_cadeira-dxracer-f-series-p08nw_m3_637878076946363675.png",
       "stock": 27
@@ -67,7 +67,7 @@
       "id": "8",
       "name": "Teclado Mecânico Razer BlackWidow",
       "description": "Teclado mecânico RGB com switches Razer Green, ideal para gamers.",
-      "price": 1000,
+      "price": 899,
       "category": "Periféricos",
       "imageUrl": "https://cdn.awsli.com.br/600x1000/1945/1945193/produto/258700723/1--1---1--kxo80vbulc.png",
       "stock": 78
@@ -76,7 +76,7 @@
       "id": "9",
       "name": "Mouse Gamer Logitech G502",
       "description": "Mouse gamer com DPI ajustável, 11 botões programáveis e iluminação RGB.",
-      "price": 1000,
+      "price": 449,
       "category": "Periféricos",
       "imageUrl": "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/gallery/g502x-plus-gallery-1-black.png?v=1",
       "stock": 102
@@ -85,10 +85,55 @@
       "id": "10",
       "name": "Monitor Ultrawide Samsung",
       "description": "Monitor ultrawide de 34 polegadas com resolução QHD e tecnologia HDR.",
-      "price": 1000,
+      "price": 2999,
       "category": "Eletrônicos",
       "imageUrl": "https://images.samsung.com/is/image/samsung/br-ultra-wide-c34f791-lc34f791wqlxzd-frontwhite-72942945?$650_519_PNG$",
       "stock": 11
+    },
+    {
+      "id": "11",
+      "name": "Samsung Galaxy S21",
+      "description": "O Samsung Galaxy S21 oferece uma tela AMOLED de 6.2 polegadas e câmeras de alta resolução.",
+      "price": 5899,
+      "category": "Eletrônicos",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/br/galaxy-s21/gallery/br-galaxy-s21-ultra-5g-g988-sm-g998bzkkzto-368335900?$624_624_PNG$",
+      "stock": 52
+    },
+    {
+      "id": "12",
+      "name": "PlayStation 5",
+      "description": "O PlayStation 5 oferece gráficos de próxima geração com suporte para jogos em 4K.",
+      "price": 4499,
+      "category": "Eletrônicos",
+      "imageUrl": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$",
+      "stock": 32
+    },
+    {
+      "id": "13",
+      "name": "Xbox Series X",
+      "description": "O Xbox Series X é o console mais poderoso da Microsoft, com suporte para jogos em 4K e 120FPS.",
+      "price": 4499,
+      "category": "Eletrônicos",
+      "imageUrl": "https://assets.xboxservices.com/assets/fb/d2/fbd2cb56-5c25-414d-9f46-e6a164cdf5be.png?n=XBX_A-BuyBoxBGImage01-D.png",
+      "stock": 29
+    },
+    {
+      "id": "14",
+      "name": "Kindle Paperwhite",
+      "description": "O Kindle Paperwhite possui uma tela de 6 polegadas com iluminação ajustável e resistência à água.",
+      "price": 649,
+      "category": "Eletrônicos",
+      "imageUrl": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1667853202/Croma%20Assets/Computers%20Peripherals/Tablets%20and%20iPads/Images/227290_0_vcrbvg.png?tr=w-600",
+      "stock": 87
+    },
+    {
+      "id": "15",
+      "name": "GoPro HERO10",
+      "description": "A GoPro HERO10 permite gravações em 5.3K, possui estabilização de imagem e é resistente à água.",
+      "price": 4299,
+      "category": "Eletrônicos",
+      "imageUrl": "https://static.gopro.com/assets/blta2b8522e5372af40/blt17586861646dccde/643ee10d0736ac330839ae69/pdp-h10-image03-1024-2x.png",
+      "stock": 19
     }
   ],
   "promotions": [
@@ -124,5 +169,22 @@
       "link": "https://images.unsplash.com/photo-1553179459-4514c0f52f41?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "3",
+      "name": "Apple Watch Series 7",
+      "unit_price": 3599,
+      "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
+      "quantity": 2
+    },
+    {
+      "id": "8",
+      "name": "Teclado Mecânico Razer BlackWidow",
+      "unit_price": 899,
+      "description": "Teclado mecânico RGB com switches Razer Green, ideal para gamers.",
+      "imageUrl": "https://cdn.awsli.com.br/600x1000/1945/1945193/produto/258700723/1--1---1--kxo80vbulc.png",
+      "quantity": 1
+    }
+  ]
 }

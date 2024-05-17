@@ -1,8 +1,7 @@
 import { Carousel } from "flowbite-react";
 import { ProductPromo } from "./ProductPromo";
 import { useEffect, useState } from "react";
-import apiUrls from "../config/apiUrls";
-
+import { apiUrls } from "../config/apiUrls";
 
 interface BannerProperties {
     id: number;
@@ -31,7 +30,7 @@ export const Header = () => {
     }, []);
 
     return (
-        <div className='h-[500px] container mx-auto rounded-lg my-5 grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
+        <div className='h-[500px] mb-5 container mx-auto rounded-lg grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
             {loading && <p>Loading banners...</p>}
             {error && <p>{error}</p>}
             {!loading && !error &&

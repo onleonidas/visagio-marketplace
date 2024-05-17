@@ -2,6 +2,7 @@ import { Button, TextInput } from "flowbite-react";
 import { CartItemProps } from "../types/CartItemInterface";
 import { HiOutlineTrash } from "react-icons/hi";
 import { useCartService } from "../services/useCartSerivce";
+import { formatCurrency } from "../utils/formatCurrency";
 
 interface CartProductProps {
     product: CartItemProps;
@@ -49,7 +50,7 @@ export const CartProduct = ({ product }: CartProductProps) => {
                         min="1"
                         onChange={(e) => handleQuantityChange(product, parseInt(e.target.value))}
                     />
-                    <p className="text-sm font-semibold text-gray-500">R$: {(product.unit_price * product.quantity).toFixed(2)}</p>
+                    <p className="text-sm font-semibold text-gray-500">{formatCurrency((product.unit_price * product.quantity))}</p>
                 </div>
 
                 <Button onClick={() => handleAddToCart(product.id)} color="dark">

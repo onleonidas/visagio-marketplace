@@ -2,7 +2,6 @@ import { HiCheck } from "react-icons/hi";
 import { Toast, ToastToggle } from 'flowbite-react';
 import { ToastProps } from "../types/ToastInterface";
 
-
 export const CustomToast = ({index, message}: ToastProps) => {
 
     return (

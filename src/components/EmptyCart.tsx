@@ -1,11 +1,6 @@
-import { Button } from "flowbite-react";
 import { GoInbox } from "react-icons/go";
-import { useNavigate } from "react-router-dom";
-
 
 export const EmptyCart = () => {
-
-    const navigate = useNavigate();
 
     return (
         <div className="w-full h-[600px] border rounded-lg flex items-center justify-center">

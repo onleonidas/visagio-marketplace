@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import apiUrls from "../config/apiUrls";
+import { apiUrls } from "../config/apiUrls";
 import { CartItemProps } from "../types/CartItemInterface";
 import { CartProduct } from "../components/CartProduct";
 import { Alert, Button } from "flowbite-react";
 import { ConfirmPaymentModal } from "../components/ConfirmPaymentModal";
 import { EmptyCart } from "../components/EmptyCart";
 import { HiInformationCircle } from "react-icons/hi";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const ShoppingCart = () => {
     const [cart, setCart] = useState<CartItemProps[]>([]);
@@ -16,7 +17,6 @@ const ShoppingCart = () => {
     const handleConfirmPurchase = () => {
         if(cart.length === 0) {
             setShowAlert(true);
-            
         }
         else{
             setOpenModal(true);
@@ -44,7 +44,7 @@ const ShoppingCart = () => {
     }, [cart]);
 
     return (
-        <div className="container mx-auto grid grid-cols-7 gap-5">
+        <div className="container mx-auto min-h-screen grid grid-cols-7 h-auto gap-5">
             <div className="md:col-span-4 col-span-7">
                 {cart.length === 0 && <EmptyCart />}
                 {cart.map((product) => (
@@ -56,7 +56,7 @@ const ShoppingCart = () => {
                 <div className="bg-black h-[200px] mb-5 rounded-lg p-5 flex items-center">
                     <div>
                         <h2 className="text-1xl font-semibold text-gray-400">Valor total</h2>
-                        <h2 className="text-4xl font-bold text-white">R$ {totalValue.toFixed(2)}</h2>
+                        <h2 className="text-4xl font-bold text-white">{formatCurrency(totalValue)}</h2>
                     </div>
                 </div>
                 <Button className="w-full" color={"dark"} onClick={handleConfirmPurchase}>Confirmar compra</Button>

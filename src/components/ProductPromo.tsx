@@ -2,7 +2,6 @@ import { Badge, Button } from 'flowbite-react'
 import { ProductsProps } from '../types/ProductsInterface';
 import { HiClock } from "react-icons/hi";
 
-
 export const ProductPromo = ({ imageUrl, name, description, category }: ProductsProps["product"]) => {
     return (
         <div className="flex flex-col m-5 h-full items-center justify-center space-y-2">

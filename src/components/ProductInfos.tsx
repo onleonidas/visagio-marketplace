@@ -2,6 +2,7 @@ import { Badge, Button, Rating, RatingStar } from "flowbite-react";
 import { ProductsProps } from "../types/ProductsInterface";
 import { useCartService } from "../services/useCartSerivce";
 import { useToast } from "../context/ToastContext";
+import { formatCurrency } from "../utils/formatCurrency";
 
 export const ProductInfos = ({ product }: ProductsProps) => {
 
@@ -19,7 +20,7 @@ export const ProductInfos = ({ product }: ProductsProps) => {
             <h2 className="text-3xl font-semibold">{name}</h2>
             <Badge size="md" color="gray">{category}</Badge>
         </div>
-        <p className="text-2xl text-gray-500">R$: {price}</p>
+        <p className="text-2xl text-gray-500">{formatCurrency(price)}</p>
         <Rating className="mt-2">
             <RatingStar />
             <RatingStar />

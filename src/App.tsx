@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { ToastProvider } from './context/ToastContext';
+import { FooterComponent } from './components/Footer';
 
 export function App() {
   return (
@@ -8,6 +9,7 @@ export function App() {
       <ToastProvider>
         <Navbar />
         <Outlet />
+        <FooterComponent />
       </ToastProvider>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ProductsProps } from '../types/ProductsInterface';
 import { CartItemProps } from '../types/CartItemInterface';
-import apiUrls from '../config/apiUrls';
+import { apiUrls } from '../config/apiUrls';
 
 export const useCartService = () => {
   const [cartItems, setCartItems] = useState<CartItemProps[]>([]);

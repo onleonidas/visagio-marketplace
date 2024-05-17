@@ -3,7 +3,6 @@ import Logo from '../assets/vstore.svg'
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
-
 const MenuLinks = [
     {
         id: 1,
@@ -20,8 +19,8 @@ const MenuLinks = [
 export const Navbar = () => {
     
     return (
-        <Nav className="container mx-auto py-5" fluid rounded>
-            <Nav.Brand href="">
+        <Nav className="container mx-auto py-5 my-5" fluid rounded>
+            <Nav.Brand href="/home">
                 <img src={Logo} className="mr-3 h-6 sm:h-9" alt="" />
             </Nav.Brand>
 
