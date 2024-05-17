@@ -23,28 +23,47 @@ export const useCartService = () => {
     fetchCartItems();
   }, []);
 
-  const clearCart = async () => {
+  const stockControl = async (productId: number, quantity: number) => {
     try {
+      const response = await fetch(`${apiUrls.products}${productId}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar o produto');
+      }
+      const product: ProductsProps["product"] = await response.json();
+      const updatedStock = product.stock - quantity;
 
+      const updateResponse = await fetch(`${apiUrls.products}${productId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...product, stock: updatedStock }),
+      });
+
+      if (!updateResponse.ok) {
+        throw new Error('Erro ao atualizar o estoque do produto');
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar o estoque do produto:', error);
+    }
+  };
+
+  const clearCart = async (cartList: CartItemProps[]) => {
+    try {
       for (const item of cartItems) {
         await removeFromCart(item.id);
+        await stockControl(item.id, item.quantity);
       }
-
       setCartItems([]);
-
     } catch (error) {
       console.error('Erro ao remover todos os itens do carrinho:', error);
     }
-  }
+  };
 
-
-  //Função para adicionar um item ao carrinho
   const addToCart = async (product: ProductsProps["product"], addToast: (message: string) => void) => {
     try {
-
       const existingItem = cartItems.find(cartItem => cartItem.id === product.id);
 
-      //Se o item já existir, atualiza apenas quantity. Se não, adiciona o item ao carrinho
       if (existingItem) {
         const updatedItem = { ...existingItem, quantity: existingItem.quantity + 1 };
         const response = await fetch(`${apiUrls.cart}${existingItem.id}`, {
@@ -65,7 +84,6 @@ export const useCartService = () => {
           )
         );
       } else {
-
         const newItem: CartItemProps = {
           id: product.id,
           name: product.name,
@@ -73,7 +91,7 @@ export const useCartService = () => {
           description: product.description,
           imageUrl: product.imageUrl,
           quantity: 1
-        }
+        };
 
         const response = await fetch(apiUrls.cart, {
           method: 'POST',
@@ -98,26 +116,27 @@ export const useCartService = () => {
     }
   };
 
-  //Função para remover um item do carrinho
   const removeFromCart = async (id: number) => {
     try {
-      const response = await fetch(`${apiUrls.cart}${id}`, {
-        method: 'DELETE',
-      });
+      const itemToRemove = cartItems.find(cartItem => cartItem.id === id);
 
-      if (!response.ok) {
-        throw new Error('Erro ao remover o item do carrinho');
+      if (itemToRemove) {
+        const response = await fetch(`${apiUrls.cart}${id}`, {
+          method: 'DELETE',
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro ao remover o item do carrinho');
+        }
+
+        setCartItems(prevItems => prevItems.filter(cartItem => cartItem.id !== id));
       }
-
-      setCartItems(prevItems => prevItems.filter(cartItem => cartItem.id !== id));
     } catch (error) {
       console.error('Erro ao remover item do carrinho:', error);
     }
   };
 
-  //Função para atualizar o valor da quantidade de cada item
   const updateCartItemQuantity = async (item: CartItemProps, quantity: number) => {
-
     item.quantity = quantity;
 
     try {
@@ -132,7 +151,6 @@ export const useCartService = () => {
       if (!response.ok) {
         throw new Error('Erro ao atualizar a quantidade do item no carrinho');
       }
-
     } catch (error) {
       console.error('Erro ao atualizar a quantidade do item no carrinho:', error);
     }

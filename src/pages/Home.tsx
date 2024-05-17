@@ -3,7 +3,8 @@ import { Product } from '../components/Product';
 import { Header } from '../components/Header';
 import { apiUrls } from '../config/apiUrls';
 import { ProductsProps } from '../types/ProductsInterface';
-import { Pagination } from 'flowbite-react';
+import { Pagination, TextInput } from 'flowbite-react';
+import { FaSearch } from 'react-icons/fa';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -28,7 +29,7 @@ const Home = () => {
         };
 
         fetchProducts();
-    }, []);
+    }, [products]);
 
     const handlePageChange = (pageNumber: number) => {
         setCurrentPage(pageNumber);

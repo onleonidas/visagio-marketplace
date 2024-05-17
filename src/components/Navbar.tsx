@@ -1,4 +1,4 @@
-import { Navbar as Nav } from "flowbite-react";
+import { Navbar as Nav, TextInput } from "flowbite-react";
 import Logo from '../assets/vstore.svg'
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
@@ -38,7 +38,10 @@ export const Navbar = () => {
                 })}
             </Nav.Collapse>
 
+
             <Nav.Collapse>
+                
+                
                 <Link to="/shoppingcart">
                     <div className="flex items-center justify-center">
                         <PiShoppingCartSimpleBold className="text-[22px] mx-2" />
