@@ -6,7 +6,7 @@
       "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
       "price": 9499,
       "category": "Eletrônicos",
-      "imageUrl": "https://files.tecnoblog.net/wp-content/uploads/2021/09/iphone-13-pro-produto-700x700.png",
+      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
       "stock": 45
     },
     {
@@ -171,19 +171,11 @@
   ],
   "cart": [
     {
-      "id": "3",
-      "name": "Apple Watch Series 7",
-      "unit_price": 3599,
-      "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
-      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
-      "quantity": 2
-    },
-    {
-      "id": "8",
-      "name": "Teclado Mecânico Razer BlackWidow",
-      "unit_price": 899,
-      "description": "Teclado mecânico RGB com switches Razer Green, ideal para gamers.",
-      "imageUrl": "https://cdn.awsli.com.br/600x1000/1945/1945193/produto/258700723/1--1---1--kxo80vbulc.png",
+      "id": "1",
+      "name": "iPhone 13 Pro",
+      "unit_price": 9499,
+      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
+      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
       "quantity": 1
     }
   ]

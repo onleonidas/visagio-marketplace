@@ -45,8 +45,8 @@ const Home = () => {
         <>
             <Header />
             <section>
-                <div className="container mx-auto">
-                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+                <div className="container  mx-auto">
+                    <div className="grid below-sm:mx-4 below-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
                         {getVisibleProducts().map((product) => (
                             <Product key={product.id} product={product} />
                         ))}

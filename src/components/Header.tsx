@@ -30,12 +30,12 @@ export const Header = () => {
     }, []);
 
     return (
-        <div className='h-[500px] mb-5 container mx-auto rounded-lg grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
+        <div className=' h-[500px] mb-5 container mx-auto rounded-lg grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
             {loading && <p>Loading banners...</p>}
             {error && <p>{error}</p>}
             {!loading && !error &&
                 <>
-                    <div className='col-span-2 rounded-lg overflow-hidden'>
+                    <div className='col-span-2 below-sm:mx-4 rounded-lg overflow-hidden'>
                         <div className="h-full">
                             <Carousel className=''>
                                 {banners.map((banner) => {

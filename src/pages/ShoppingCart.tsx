@@ -44,15 +44,15 @@ const ShoppingCart = () => {
     }, [cart]);
 
     return (
-        <div className="container mx-auto min-h-screen grid grid-cols-7 h-auto gap-5">
-            <div className="md:col-span-4 col-span-7">
+        <div className="container mx-auto min-h-screen grid grid-cols-7 h-auto">
+            <div className="md:col-span-4 col-span-7 mx-2">
                 {cart.length === 0 && <EmptyCart />}
                 {cart.map((product) => (
                     <CartProduct key={product.id} product={product} />
                 ))}
             </div>
 
-            <div className="h-fit md:col-span-3 col-span-7 bg-white border p-5 rounded-lg">
+            <div className="h-fit md:col-span-3 mx-2 col-span-7 bg-white border p-5 rounded-lg">
                 <div className="bg-black h-[200px] mb-5 rounded-lg p-5 flex items-center">
                     <div>
                         <h2 className="text-1xl font-semibold text-gray-400">Valor total</h2>

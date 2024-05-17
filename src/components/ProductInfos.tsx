@@ -15,7 +15,8 @@ export const ProductInfos = ({ product }: ProductsProps) => {
         addToCart(product, addToast);
     };
 
-    return (<>
+    return (
+    <div className="">
         <div className="flex justify-between">
             <h2 className="text-3xl font-semibold">{name}</h2>
             <Badge size="md" color="gray">{category}</Badge>
@@ -35,10 +36,7 @@ export const ProductInfos = ({ product }: ProductsProps) => {
                 <p>Adicionar ao carrinho</p>
             </Button>
         </div>
-        <Badge size="sm" className="w-fit mt-5" color="warning">
-            Restam {stock} {name} no estoque.
-        </Badge>
-    </>
+    </div>
     );
 };
 

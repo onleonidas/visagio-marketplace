@@ -33,12 +33,12 @@ const ProductPage = () => {
       {error && <p>{error}</p>}
       {!loading && !error && product &&
         <>
-          <div className="container mx-auto md:w-[90vw] sm:w-[900vw] lg:w-[80vw] h-[600px]
+          <div className="container mx-auto md:w-[90vw] sm:w-[900vw] lg:w-[80vw] h-auto
           my-5 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-            <div className="bg-stone-200 rounded-lg w-full h-full flex items-center justify-center">
+            <div className="bg-stone-200 rounded-lg mx-5  flex items-center justify-center">
               <img className="max-h-[600px]" src={product.imageUrl} alt="" />
             </div>
-            <div className="p-5">
+            <div className="p-5 ">
               <ProductInfos product={product}/>
             </div>
           </div>
