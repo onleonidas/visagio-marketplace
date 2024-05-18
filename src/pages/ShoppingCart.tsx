@@ -24,24 +24,27 @@ const ShoppingCart = () => {
     };
 
     useEffect(() => {
+        //console.warn("Shopping Cart com loop")
+
         const fetchProducts = async () => {
             try {
                 const response = await fetch(apiUrls.cart);
                 const data = await response.json();
                 setCart(data);
+
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
 
-        const calculateTotalValue = () => {
-            const total = cart.reduce((acc, product) => acc + (product.unit_price * product.quantity), 0);
-            setTotalValue(total);
-        };
-
         fetchProducts();
         calculateTotalValue();
     }, [cart]);
+
+    const calculateTotalValue = () => {
+        const total = cart.reduce((acc, product) => acc + (product.unit_price * product.quantity), 0);
+        setTotalValue(total);
+    };
 
     return (
         <div className="container mx-auto min-h-screen grid grid-cols-7 h-auto">

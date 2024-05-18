@@ -3,6 +3,7 @@ import { CartItemProps } from "../types/CartItemInterface";
 import { HiOutlineTrash } from "react-icons/hi";
 import { useCartService } from "../hooks/useCartSerivce";
 import { formatCurrency } from "../utils/formatCurrency";
+import { useToast } from "../context/ToastContext";
 
 interface CartProductProps {
     product: CartItemProps;
@@ -11,6 +12,7 @@ interface CartProductProps {
 export const CartProduct = ({ product }: CartProductProps) => {
 
     const { removeFromCart, updateCartItemQuantity } = useCartService();
+    const { addToast } = useToast();
 
     //Remover produto do carrinho
     const handleAddToCart = (id: number) => {
@@ -19,7 +21,7 @@ export const CartProduct = ({ product }: CartProductProps) => {
 
     //Atualizar quantidade do item no carrinho
     const handleQuantityChange = (item: CartItemProps, quantity: number) => {
-        updateCartItemQuantity(item, quantity);
+        updateCartItemQuantity(item, quantity, addToast);
     };
 
     return (

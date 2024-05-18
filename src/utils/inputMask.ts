@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+
+/** 
+ * Esse arquivo contém funções que aplicam máscaras nos inputs
+ */
 export const maskMoney = (event: React.FormEvent<HTMLInputElement>) => {
   const { value } = event.currentTarget;
   return value

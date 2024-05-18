@@ -4,15 +4,14 @@ import { CartItemProps } from '../types/CartItemInterface';
 import { apiUrls } from '../config/apiUrls';
 
 /** 
- * ijidjaidja
- * asdada
- * asda
- * 
+ * Esse arquivo contém as funções que gerenciam o estado do carrinho
  */
 export const useCartService = () => {
   const [cartItems, setCartItems] = useState<CartItemProps[]>([]);
 
   useEffect(() => {
+    //console.warn("UseCartService com loop")
+
     const fetchCartItems = async () => {
       try {
         const response = await fetch(apiUrls.cart);
@@ -27,17 +26,21 @@ export const useCartService = () => {
     };
 
     fetchCartItems();
+
   }, [cartItems]);
 
   const stockControl = async (productId: number, quantity: number) => {
     try {
-      console.log(quantity);
       const response = await fetch(`${apiUrls.products}${productId}`);
       if (!response.ok) {
         throw new Error('Erro ao buscar o produto');
       }
       const product: ProductsProps["product"] = await response.json();
-      const updatedStock = product.stock - quantity;
+      let updatedStock = product.stock - quantity;
+
+      if (updatedStock < 0) {
+        updatedStock = 0;
+      }
 
       const updateResponse = await fetch(`${apiUrls.products}${productId}`, {
         method: 'PUT',
@@ -145,25 +148,41 @@ export const useCartService = () => {
     }
   };
 
-  const updateCartItemQuantity = async (item: CartItemProps, quantity: number) => {
-    item.quantity = quantity;
-
+  const updateCartItemQuantity = async (item: CartItemProps, quantity: number, addToast: (message: string) => void) => {
     try {
-      const response = await fetch(`${apiUrls.cart}${item.id}`, {
+      // Faz uma solicitação para obter os detalhes do produto com base no id do item
+      const response = await fetch(`${apiUrls.products}${item.id}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar o produto');
+      }
+      const product: ProductsProps["product"] = await response.json();
+  
+      // Verifica se a quantidade atualizada não é maior que a quantidade em estoque
+      if (quantity > product.stock) {
+        addToast(`Nós só temos ${product.stock} ${item.name} no estoque. Os excedentes não entrarão na sua compra.`);
+        return;
+      }
+  
+      item.quantity = quantity;
+  
+      // Atualiza a quantidade do item no carrinho
+      const updateResponse = await fetch(`${apiUrls.cart}${item.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(item),
       });
-
-      if (!response.ok) {
+  
+      if (!updateResponse.ok) {
         throw new Error('Erro ao atualizar a quantidade do item no carrinho');
       }
     } catch (error) {
       console.error('Erro ao atualizar a quantidade do item no carrinho:', error);
     }
   };
+  
+  
 
   return { cartItems, addToCart, removeFromCart, updateCartItemQuantity, clearCart };
 };

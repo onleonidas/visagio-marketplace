@@ -1,9 +1,8 @@
-import { Navbar as Nav, TextInput } from "flowbite-react";
-import Logo from '../assets/vstore.svg'
+import { Navbar as Nav } from "flowbite-react";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
-
-//Contador de produtos no carrinho
+import { useState, useEffect } from "react";
+import { useCartService } from "../hooks/useCartSerivce";
 
 const MenuLinks = [
     {
@@ -13,17 +12,26 @@ const MenuLinks = [
     },
     {
         id: 2,
-        name: "Catálogo",
-        link: "/catalogo"
+        name: "Carrinho",
+        link: "/shoppingcart"
     }
 ]
 
 export const Navbar = () => {
-    
+
+    const { cartItems } = useCartService();
+    const [cartItemCount, setCartItemCount] = useState(0);
+
+    useEffect(() => {
+        //console.warn("Navbar com loop")
+        setCartItemCount(cartItems.length);        
+    }, [cartItems]);
+
+
     return (
         <Nav className="container mx-auto py-5 my-5" fluid rounded>
             <Nav.Brand href="/home">
-                <img src={Logo} className="mr-3 h-6 sm:h-9" alt="" />
+                <img src="../src/assets/vstore.svg" className="mr-3 h-6 sm:h-9" alt="" />
             </Nav.Brand>
 
             <Nav.Toggle />
@@ -40,20 +48,17 @@ export const Navbar = () => {
                 })}
             </Nav.Collapse>
 
-
             <Nav.Collapse>
-                
-                
                 <Link to="/shoppingcart">
-                    <div className="flex items-center justify-center">
-                        <PiShoppingCartSimpleBold className="text-[22px] mx-2" />
-                    </div>
+                    <button type="button" className="relative inline-flex items-center font-medium text-center rounded-full">
+                        <PiShoppingCartSimpleBold className="text-[26px] mx-2" />
+                        {cartItemCount > 0 &&
+                            <div className="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-orange-500 rounded-full -top-2 -end-2 ">{cartItemCount}</div>
+
+                        }
+                    </button>
                 </Link>
             </Nav.Collapse>
-
-
-
         </Nav>
     );
 }
-

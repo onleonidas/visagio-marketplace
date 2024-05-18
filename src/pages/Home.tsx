@@ -3,8 +3,7 @@ import { Product } from '../components/Product';
 import { Header } from '../components/Header';
 import { apiUrls } from '../config/apiUrls';
 import { ProductsProps } from '../types/ProductsInterface';
-import { Pagination, TextInput } from 'flowbite-react';
-import { FaSearch } from 'react-icons/fa';
+import { Pagination } from 'flowbite-react';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -26,13 +25,15 @@ const Home = () => {
     };
     
     useEffect(() => {
+        console.warn("home com loop")
+
         const fetchProducts = async () => {
             try {
                 const response = await fetch(apiUrls.products);
                 const data = await response.json();
                 setProducts(data);
 
-                // Calculando total de paginas: itens total e itens por página
+                // Calculando total de paginas: itens total por itens por página
                 const totalItems = data.length;
                 setTotalPages(Math.ceil(totalItems / ITEMS_PER_PAGE));
             } catch (error) {

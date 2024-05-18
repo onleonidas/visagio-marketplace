@@ -1,3 +1,7 @@
+/** 
+ * Esse arquivo contém os endpoints da API
+ */
+
 export const apiUrls = {
     products: import.meta.env.VITE_API_CATALOG,
     promotions: import.meta.env.VITE_API_PROMOTIONS,

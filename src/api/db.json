@@ -133,7 +133,7 @@
       "price": 4299,
       "category": "Eletrônicos",
       "imageUrl": "https://static.gopro.com/assets/blta2b8522e5372af40/blt17586861646dccde/643ee10d0736ac330839ae69/pdp-h10-image03-1024-2x.png",
-      "stock": 1
+      "stock": 20
     }
   ],
   "promotions": [
@@ -171,12 +171,28 @@
   ],
   "cart": [
     {
+      "id": "2",
+      "name": "MacBook Air M1",
+      "unit_price": 10499,
+      "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
+      "quantity": 1
+    },
+    {
+      "id": "3",
+      "name": "Apple Watch Series 7",
+      "unit_price": 3599,
+      "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
+      "quantity": 2
+    },
+    {
       "id": "1",
       "name": "iPhone 13 Pro",
       "unit_price": 9499,
       "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
       "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
-      "quantity": 3
+      "quantity": 7
     }
   ]
 }

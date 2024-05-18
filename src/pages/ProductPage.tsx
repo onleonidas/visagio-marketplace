@@ -11,6 +11,8 @@ const ProductPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    console.warn("product page com loop")
+
     const fetchProduct = async () => {
       try {
         const response = await fetch(`${apiUrls.products}${id}`);
