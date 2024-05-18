@@ -3,6 +3,12 @@ import { ProductsProps } from '../types/ProductsInterface';
 import { CartItemProps } from '../types/CartItemInterface';
 import { apiUrls } from '../config/apiUrls';
 
+/** 
+ * ijidjaidja
+ * asdada
+ * asda
+ * 
+ */
 export const useCartService = () => {
   const [cartItems, setCartItems] = useState<CartItemProps[]>([]);
 
@@ -21,10 +27,11 @@ export const useCartService = () => {
     };
 
     fetchCartItems();
-  }, []);
+  }, [cartItems]);
 
   const stockControl = async (productId: number, quantity: number) => {
     try {
+      console.log(quantity);
       const response = await fetch(`${apiUrls.products}${productId}`);
       if (!response.ok) {
         throw new Error('Erro ao buscar o produto');
@@ -48,9 +55,10 @@ export const useCartService = () => {
     }
   };
 
-  const clearCart = async (cartList: CartItemProps[]) => {
+  const clearCart = async () => {
     try {
       for (const item of cartItems) {
+        console.log(item);
         await removeFromCart(item.id);
         await stockControl(item.id, item.quantity);
       }
@@ -59,6 +67,7 @@ export const useCartService = () => {
       console.error('Erro ao remover todos os itens do carrinho:', error);
     }
   };
+
 
   const addToCart = async (product: ProductsProps["product"], addToast: (message: string) => void) => {
     try {
@@ -75,7 +84,7 @@ export const useCartService = () => {
         });
 
         if (!response.ok) {
-          throw new Error('Erro ao atualizar o item no carrinho');
+          console.error('Erro ao encontrar o item');
         }
 
         setCartItems(prevItems =>
@@ -100,9 +109,9 @@ export const useCartService = () => {
           },
           body: JSON.stringify(newItem),
         });
-
+        
         if (!response.ok) {
-          throw new Error('Erro ao adicionar o item ao carrinho');
+          console.error('Erro ao encontrar o item');
         }
 
         const addedItem = await response.json();

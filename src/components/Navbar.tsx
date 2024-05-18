@@ -3,6 +3,8 @@ import Logo from '../assets/vstore.svg'
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
+//Contador de produtos no carrinho
+
 const MenuLinks = [
     {
         id: 1,

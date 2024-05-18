@@ -2,7 +2,7 @@ import { TbShoppingCartPlus } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import { ProductsProps } from '../types/ProductsInterface';
-import { useCartService } from "../services/useCartSerivce";
+import { useCartService } from "../hooks/useCartSerivce";
 import { Badge } from "flowbite-react";
 
 export const Product = ({ product }: ProductsProps) => {

@@ -68,7 +68,7 @@ const ShoppingCart = () => {
                 )}
 
             </div>
-            <ConfirmPaymentModal cartList={cart} openModal={openModal} onClose={() => setOpenModal(false)} />
+            <ConfirmPaymentModal openModal={openModal} onClose={() => setOpenModal(false)} />
         </div>
     );
 };

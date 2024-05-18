@@ -13,6 +13,18 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
+    
+    const handlePageChange = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
+    
+    const getVisibleProducts = () => {
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        
+        return products.slice(startIndex, endIndex);
+    };
+    
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -30,35 +42,24 @@ const Home = () => {
 
         fetchProducts();
     }, [products]);
-
-    const handlePageChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber);
-    };
-
-    const getVisibleProducts = () => {
-        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-        const endIndex = startIndex + ITEMS_PER_PAGE;
-
-        return products.slice(startIndex, endIndex);
-    };
-
+    
     return (
         <>
             <Header />
-            <section>
-                <div className="container  mx-auto">
-                    <div className="grid below-sm:mx-4 below-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-                        {getVisibleProducts().map((product) => (
-                            <Product key={product.id} product={product} />
-                        ))}
-                    </div>
-                    <div className='w-full flex justify-center my-16'>
-                        <Pagination key={currentPage} currentPage={currentPage} totalPages={totalPages}
-                            onPageChange={handlePageChange} showIcons />
-                    </div>
 
+            <section className="container  mx-auto">
+                <div className="grid below-sm:mx-4 below-sm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+                    {getVisibleProducts().map((product) => (
+                        <Product key={product.id} product={product} />
+                    ))}
                 </div>
+                <div className='w-full flex justify-center my-16'>
+                    <Pagination key={currentPage} currentPage={currentPage} totalPages={totalPages}
+                        onPageChange={handlePageChange} showIcons />
+                </div>
+
             </section>
+
         </>
     );
 };

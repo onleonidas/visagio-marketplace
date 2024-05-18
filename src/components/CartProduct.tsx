@@ -1,7 +1,7 @@
 import { Button, TextInput } from "flowbite-react";
 import { CartItemProps } from "../types/CartItemInterface";
 import { HiOutlineTrash } from "react-icons/hi";
-import { useCartService } from "../services/useCartSerivce";
+import { useCartService } from "../hooks/useCartSerivce";
 import { formatCurrency } from "../utils/formatCurrency";
 
 interface CartProductProps {

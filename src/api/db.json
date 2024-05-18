@@ -7,7 +7,7 @@
       "price": 9499,
       "category": "Eletrônicos",
       "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
-      "stock": 42
+      "stock": 16
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "price": 10499,
       "category": "Eletrônicos",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
-      "stock": 23
+      "stock": 21
     },
     {
       "id": "3",
@@ -25,7 +25,7 @@
       "price": 3599,
       "category": "Acessórios",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
-      "stock": 67
+      "stock": 24
     },
     {
       "id": "4",
@@ -169,5 +169,14 @@
       "link": "https://images.unsplash.com/photo-1553179459-4514c0f52f41?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "1",
+      "name": "iPhone 13 Pro",
+      "unit_price": 9499,
+      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
+      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
+      "quantity": 3
+    }
+  ]
 }

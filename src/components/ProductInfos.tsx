@@ -1,6 +1,6 @@
 import { Badge, Button, Rating, RatingStar } from "flowbite-react";
 import { ProductsProps } from "../types/ProductsInterface";
-import { useCartService } from "../services/useCartSerivce";
+import { useCartService } from "../hooks/useCartSerivce";
 import { useToast } from "../context/ToastContext";
 import { formatCurrency } from "../utils/formatCurrency";
 
