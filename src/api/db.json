@@ -169,5 +169,22 @@
       "link": "https://images.unsplash.com/photo-1553179459-4514c0f52f41?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "1",
+      "name": "iPhone 13 Pro",
+      "unit_price": 9499,
+      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
+      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
+      "quantity": 1
+    },
+    {
+      "id": "6",
+      "name": "Microfone de mesa ATR4",
+      "unit_price": 299,
+      "description": "Microfone condensador para mesa de computador.",
+      "imageUrl": "https://www.audio-technica.com/pt-br/media/catalog/product/a/t/atr4750_01.png",
+      "quantity": 1
+    }
+  ]
 }
