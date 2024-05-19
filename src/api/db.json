@@ -134,6 +134,24 @@
       "category": "Eletrônicos",
       "imageUrl": "https://static.gopro.com/assets/blta2b8522e5372af40/blt17586861646dccde/643ee10d0736ac330839ae69/pdp-h10-image03-1024-2x.png",
       "stock": 20
+    },
+    {
+      "id": "16",
+      "name": "PSVR2",
+      "description": "Óculos de realidade virtual",
+      "price": 3500,
+      "category": "Eletrônicos",
+      "imageUrl": "https://gmedia.playstation.com/is/image/SIEPDC/PSVR2-thumbnail-01-en-22feb22?$facebook$",
+      "stock": 10
+    },
+    {
+      "id": "17",
+      "name": "Nokia Tijoão",
+      "description": "Celular que não quebra nunca.",
+      "price": 250,
+      "category": "Eletrônicos",
+      "imageUrl": "https://static.ndmais.com.br/2024/05/nokia-tijolao-1-1300x1300.png",
+      "stock": 20
     }
   ],
   "promotions": [
@@ -169,22 +187,5 @@
       "link": "https://images.unsplash.com/photo-1553179459-4514c0f52f41?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "name": "iPhone 13 Pro",
-      "unit_price": 9499,
-      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
-      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
-      "quantity": 1
-    },
-    {
-      "id": "6",
-      "name": "Microfone de mesa ATR4",
-      "unit_price": 299,
-      "description": "Microfone condensador para mesa de computador.",
-      "imageUrl": "https://www.audio-technica.com/pt-br/media/catalog/product/a/t/atr4750_01.png",
-      "quantity": 1
-    }
-  ]
+  "cart": []
 }

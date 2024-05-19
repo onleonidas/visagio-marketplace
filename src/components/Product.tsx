@@ -4,6 +4,7 @@ import { useToast } from "../context/ToastContext";
 import { ProductsProps } from '../types/ProductsInterface';
 import { useCart } from '../context/CartContext';
 import { Badge } from "flowbite-react";
+import { formatCurrency } from "../utils/formatCurrency";
 
 export const Product = ({ product }: ProductsProps) => {
   const { id, name, price, category, imageUrl, stock } = product;
@@ -27,7 +28,7 @@ export const Product = ({ product }: ProductsProps) => {
 
       <div className='flex justify-between items-center'>
         <div>
-          <p className='text-gray-500 below-sm:text-[14px]'>R$: {price}</p>
+          <p className='text-gray-500 below-sm:text-[14px]'>{formatCurrency(price)}</p>
           <h2 className='font-semibold text-1xl below-sm:text-[14px]'>{name}</h2>
           <p className='text-sm text-gray-400 below-sm:text-[10px]'>{category}</p>
 

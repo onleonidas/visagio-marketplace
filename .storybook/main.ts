@@ -8,10 +8,11 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    '@storybook/preset-create-react-app'
   ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
-  },
+  framework: '@storybook/react-vite',
+  core: {
+    builder: '@storybook/builder-vite',
+  }
 };
 export default config;

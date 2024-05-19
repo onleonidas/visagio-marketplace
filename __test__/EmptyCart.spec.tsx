@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { EmptyCart } from "../components/EmptyCart";
+import { EmptyCart } from "../src/components/EmptyCart";
 import '@testing-library/jest-dom/jest-globals';
 import '@testing-library/jest-dom';
 

@@ -59,7 +59,7 @@ export const Header = () => {
                                 name={"PSVR2"}
                                 description={"Óculos de realidade virtual"}
                                 category={"Eletrônicos"}
-                                price={1.500}
+                                price={3500}
                                 stock={10}
                             />
                         </div>

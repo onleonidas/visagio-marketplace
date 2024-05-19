@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { CartProduct } from '../components/CartProduct';
+import { CartProduct } from '../src/components/CartProduct';
 import '@testing-library/jest-dom/jest-globals';
 import '@testing-library/jest-dom';
 
