@@ -1,49 +1,34 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../components/Product';
 import { Header } from '../components/Header';
-import { apiUrls } from '../config/apiUrls';
-import { ProductsProps } from '../types/ProductsInterface';
 import { Pagination } from 'flowbite-react';
+import { useCart } from '../context/CartContext';
 
 const ITEMS_PER_PAGE = 8;
 
 const Home = () => {
-    const [products, setProducts] = useState<ProductsProps['product'][]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [totalPages, setTotalPages] = useState<number>(0);
+    const { catalogItems } = useCart();
 
-    
     const handlePageChange = (pageNumber: number) => {
         setCurrentPage(pageNumber);
     };
-    
+
     const getVisibleProducts = () => {
+        if (!catalogItems) return [];
         const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
         const endIndex = startIndex + ITEMS_PER_PAGE;
-        
-        return products.slice(startIndex, endIndex);
+        return catalogItems.slice(startIndex, endIndex);
     };
-    
+
     useEffect(() => {
-        console.warn("home com loop")
+        if (catalogItems) {
+            const totalItems = catalogItems.length;
+            setTotalPages(Math.ceil(totalItems / ITEMS_PER_PAGE));
+        }
+    }, [catalogItems]);
 
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch(apiUrls.products);
-                const data = await response.json();
-                setProducts(data);
-
-                // Calculando total de paginas: itens total por itens por página
-                const totalItems = data.length;
-                setTotalPages(Math.ceil(totalItems / ITEMS_PER_PAGE));
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        };
-
-        fetchProducts();
-    }, [products]);
-    
     return (
         <>
             <Header />

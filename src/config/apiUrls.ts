@@ -1,5 +1,5 @@
 /** 
- * Esse arquivo contém os endpoints da API
+ * @apiNote This file contains the API URLs for the application.
  */
 
 export const apiUrls = {

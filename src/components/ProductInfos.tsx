@@ -1,6 +1,6 @@
 import { Badge, Button, Rating, RatingStar } from "flowbite-react";
 import { ProductsProps } from "../types/ProductsInterface";
-import { useCartService } from "../hooks/useCartSerivce";
+import { useCart } from "../context/CartContext";
 import { useToast } from "../context/ToastContext";
 import { formatCurrency } from "../utils/formatCurrency";
 
@@ -8,9 +8,9 @@ export const ProductInfos = ({ product }: ProductsProps) => {
 
     const { name, description, price, category, stock } = product;
     const { addToast } = useToast();
-    const { addToCart } = useCartService();
+    const { addToCart } = useCart();
 
-    //Adicionar produto ao carrinho
+    //Add product to cart
     const handleAddToCart = (product: ProductsProps["product"]) => {
         addToCart(product, addToast);
     };
@@ -47,7 +47,7 @@ export const ProductInfos = ({ product }: ProductsProps) => {
                 </div>
             }
 
-            <Badge color="warning" className="w-fit mt-5">Temoso total de {stock} {name} no nosso estoque.</Badge>
+            <Badge color="warning" className="w-fit mt-5">Temos o total de {stock} {name} no nosso estoque.</Badge>
         </div>
     );
 };

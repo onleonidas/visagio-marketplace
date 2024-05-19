@@ -2,15 +2,15 @@ import { TbShoppingCartPlus } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import { ProductsProps } from '../types/ProductsInterface';
-import { useCartService } from "../hooks/useCartSerivce";
+import { useCart } from '../context/CartContext';
 import { Badge } from "flowbite-react";
 
 export const Product = ({ product }: ProductsProps) => {
   const { id, name, price, category, imageUrl, stock } = product;
   const { addToast } = useToast();
-  const { addToCart } = useCartService();
+  const { addToCart } = useCart();
 
-  //Adicionar produto ao carrinho
+  // Added product to cart
   const handleAddToCart = (product: ProductsProps["product"]) => {
     addToCart(product, addToast);
   };
@@ -40,7 +40,7 @@ export const Product = ({ product }: ProductsProps) => {
           </button>
         }
         {stock === 0 &&
-          <Badge color="failure" className="below-sm:text-[10px]">Desculpe, não temos o item em estoque.</Badge>
+          <Badge color="failure" className=" below-sm:text-[10px]">Não temos o item em estoque.</Badge>
         }
 
       </div>

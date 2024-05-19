@@ -1,7 +1,7 @@
 import { Button, Modal } from "flowbite-react";
 import TextInput from "./TextInput";
 import { useNavigate } from "react-router-dom";
-import { useCartService } from "../hooks/useCartSerivce";
+import { useCart } from "../context/CartContext";
 
 interface ModalProps {
     openModal: boolean;
@@ -11,7 +11,7 @@ interface ModalProps {
 export const ConfirmPaymentModal = ({ openModal, onClose }: ModalProps) => {
 
     const navigate = useNavigate();
-    const { clearCart } = useCartService();
+    const { clearCart } = useCart();
 
     const handleConfirmPayment = async () => {
         navigate("/paymentConfirmed")

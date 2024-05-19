@@ -1,5 +1,5 @@
 /** 
- * Função para formatar números em reais
+ * Function to format a number to currency in BRL format
  */
 export const formatCurrency = (value: number) => {
     return value.toLocaleString('pt-BR', {

@@ -9,7 +9,7 @@ export function FooterComponent() {
           
         </div>
         <div className="w-full bg-zinc-800 px-4 py-10">
-          <FooterCopyright href="#" by="Vstore" year={2022} />
+          <FooterCopyright href="#" by="Vstore by Michel Leonidas" year={2024} />
           <div className="mt-4 flex space-x-6 sm:justify-center">
             <FooterIcon href="#" icon={BsFacebook} />
             <FooterIcon href="#" icon={BsInstagram} />

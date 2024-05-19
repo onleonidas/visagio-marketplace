@@ -7,7 +7,7 @@
       "price": 9499,
       "category": "Eletrônicos",
       "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
-      "stock": 16
+      "stock": 2
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "price": 10499,
       "category": "Eletrônicos",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
-      "stock": 21
+      "stock": 19
     },
     {
       "id": "3",
@@ -25,7 +25,7 @@
       "price": 3599,
       "category": "Acessórios",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
-      "stock": 24
+      "stock": 0
     },
     {
       "id": "4",
@@ -34,7 +34,7 @@
       "price": 2299,
       "category": "Acessórios",
       "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
-      "stock": 119
+      "stock": 116
     },
     {
       "id": "5",
@@ -171,28 +171,12 @@
   ],
   "cart": [
     {
-      "id": "2",
-      "name": "MacBook Air M1",
-      "unit_price": 10499,
-      "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
-      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
+      "id": "4",
+      "name": "AirPods Pro",
+      "unit_price": 2299,
+      "description": "Os AirPods Pro oferecem cancelamento de ruído ativo, modo ambiente e ajuste personalizável.",
+      "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
       "quantity": 1
-    },
-    {
-      "id": "3",
-      "name": "Apple Watch Series 7",
-      "unit_price": 3599,
-      "description": "O Apple Watch Series 7 tem tela maior, resistência à poeira e detecção de queda.",
-      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2023/03/Apple-Watch-S7-45mm-MIDNIGHT.png",
-      "quantity": 2
-    },
-    {
-      "id": "1",
-      "name": "iPhone 13 Pro",
-      "unit_price": 9499,
-      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
-      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
-      "quantity": 7
     }
   ]
 }
