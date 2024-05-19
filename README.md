@@ -7,7 +7,8 @@ Este guia irá orientá-lo sobre como executar uma aplicação React escrita em 
 
 ## Caso você não queira rodar localmente, você pode acessar o link abaixo.
 [Versão on vercel](https://visagio-marketplace-git-main-michel-leonidas-projects.vercel.app/)
-Alguns erros podem ser comuns no Vercel, mas aparentemente o deploy não resultou em muitas inconsistências.
+- Alguns erros podem ser comuns no Vercel, mas aparentemente o deploy não resultou em muitas inconsistências.
+- O servidor de dados (pnpm start) precisa estar rodando para que a aplicação funcione corretamente. 
 
 ## Pré-requisitos
 
