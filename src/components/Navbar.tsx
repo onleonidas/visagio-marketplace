@@ -30,14 +30,15 @@ export const Navbar = () => {
     }, [cartItems]);
 
     return (
-        <Nav className="container mx-auto py-5 my-5" fluid rounded>
+        <div className="container mx-auto my-5">
+        <Nav className="xl:mx-10" fluid rounded>
             <Nav.Brand href="/home">
                 <img src="../src/assets/vstore.svg" className="mr-3 h-6 sm:h-9" alt="VStore" />
             </Nav.Brand>
 
             <Nav.Toggle />
 
-            <Nav.Collapse>
+            <Nav.Collapse className="">
                 {MenuLinks.map((link) => (
                     <Nav.Link key={link.id} href={link.link}>
                         <p className="text-gray-600 hover:text-black">
@@ -49,7 +50,11 @@ export const Navbar = () => {
 
             <Nav.Collapse>
                 <Link to="/shoppingcart">
-                    <button type="button" className="relative inline-flex items-center font-medium text-center rounded-full">
+                    <button type="button"
+                    className="bg-white below-sm:py-2 md:bg-white md:text-black lg:bg-white lg:text-black below-sm:rounded-lg
+                    below-sm:bg-orange-400 below-sm:text-white below-sm:w-full below-sm:flex below-sm:items-center
+                    below-sm:justify-center sm:py-2 sm:rounded-lg sm:bg-orange-400 sm:text-white sm:w-full sm:flex
+                    sm:items-center sm:justify-center relative inline-flex items-center font-medium text-center rounded-full">
                         <PiShoppingCartSimpleBold className="text-[26px] mx-2" />
                         {cartItemCount > 0 && (
                             <div className="absolute text-[11px] inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-orange-500 rounded-full -top-2 -right-2">
@@ -60,5 +65,6 @@ export const Navbar = () => {
                 </Link>
             </Nav.Collapse>
         </Nav>
+        </div>
     );
 };

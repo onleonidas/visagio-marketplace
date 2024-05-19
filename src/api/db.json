@@ -16,7 +16,7 @@
       "price": 10499,
       "category": "Eletrônicos",
       "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
-      "stock": 19
+      "stock": 18
     },
     {
       "id": "3",
@@ -171,11 +171,19 @@
   ],
   "cart": [
     {
-      "id": "4",
-      "name": "AirPods Pro",
-      "unit_price": 2299,
-      "description": "Os AirPods Pro oferecem cancelamento de ruído ativo, modo ambiente e ajuste personalizável.",
-      "imageUrl": "https://static.vecteezy.com/system/resources/previews/026/782/383/original/apple-airpods-ai-generative-free-png.png",
+      "id": "1",
+      "name": "iPhone 13 Pro",
+      "unit_price": 9499,
+      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
+      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
+      "quantity": 1
+    },
+    {
+      "id": "2",
+      "name": "MacBook Air M1",
+      "unit_price": 10499,
+      "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
+      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
       "quantity": 3
     }
   ]

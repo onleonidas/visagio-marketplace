@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect, useCallback, useMemo } from 'react'; 
 import { formatCurrency } from '../utils/formatCurrency';
 import { CartItemProps } from '../types/CartItemInterface';
 import { CartProduct } from '../components/CartProduct';
@@ -6,53 +6,51 @@ import { apiUrls } from '../config/apiUrls';
 import { ConfirmPaymentModal } from '../components/ConfirmPaymentModal';
 import { EmptyCart } from '../components/EmptyCart';
 import { HiInformationCircle } from 'react-icons/hi';
-import { Alert, Button } from 'flowbite-react';
+import { Alert, Button, Spinner } from 'flowbite-react';
 import { useCart } from '../context/CartContext';
 import { useToast } from "../context/ToastContext";
 
+/**
+ * Componente responsável por renderizar a página de carrinho de compras.
+ */
 const ShoppingCart = () => {
     const [cartProducts, setCartProducts] = useState<CartItemProps[]>([]);
-    const [totalValue, setTotalValue] = useState(0);
     const [showAlert, setShowAlert] = useState(false);
     const [openModal, setOpenModal] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const { removeFromCart, updateCartItemQuantity } = useCart();
     const { addToast } = useToast();
 
     /**Função responsável por atualizar a quantidade de um determinado item no carrinho.*/
-    const handleQuantityChange = (product: CartItemProps, newQuantity: number) => {
+    const handleQuantityChange = useCallback((product: CartItemProps, newQuantity: number) => {
         const updatedCart = cartProducts.map(item =>
             item.id === product.id ? { ...item, quantity: newQuantity } : item
         );
         updateCartItemQuantity(product, newQuantity, addToast);
         setCartProducts(updatedCart);
-    };
+    }, [cartProducts, updateCartItemQuantity, addToast]);
 
     /**Função responsável por remover um determinado item do carrinho.*/
-    const handleRemoveFromCart = (id: number) => {
+    const handleRemoveFromCart = useCallback((id: number) => {
         const updatedCart = cartProducts.filter(product => product.id !== id);
         setCartProducts(updatedCart);
         removeFromCart(id);
-    };
+    }, [cartProducts, removeFromCart]);
 
     /**Função responsável por verificar se o carrinho possui itens antes de continuar com a compra*/
-    const handleConfirmPurchase = () => {
-        if(cartProducts.length === 0) {
+    const handleConfirmPurchase = useCallback(() => {
+        if (cartProducts.length === 0) {
             setShowAlert(true);
-        }
-        else{
+        } else {
             setOpenModal(true);
         }
-    };
-
-    /**UseEffect responsável por atualizar a soma total dos itens no carrinho a medida que o carrinho sofrer alterações*/
-    useEffect(() => {
-        const calculateTotalValue = () => {
-            const total = cartProducts.reduce((acc, product) => acc + (product.unit_price * product.quantity), 0);
-            setTotalValue(total);
-        };
-        calculateTotalValue();
     }, [cartProducts]);
-    
+
+    /**Variável responsável por calcular o valor total do carrinho.*/
+    const totalValue = useMemo(() => {
+        return cartProducts.reduce((acc, product) => acc + (product.unit_price * product.quantity), 0);
+    }, [cartProducts]);
+
     /**UseEffect responsável por carregar a lista de itens no carrinho quando o componente ShoppingCart é iniciado.*/
     useEffect(() => {
         const fetchProducts = async () => {
@@ -60,9 +58,10 @@ const ShoppingCart = () => {
                 const response = await fetch(apiUrls.cart);
                 const data = await response.json();
                 setCartProducts(data);
-
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setIsLoading(false);
             }
         };
 
@@ -71,19 +70,24 @@ const ShoppingCart = () => {
 
     return (
         <div className="container mx-auto min-h-screen grid grid-cols-7 h-auto">
-            <div className="md:col-span-4 col-span-7 mx-2">
+            <div className="md:col-span-4 xl:ml-10 col-span-7 mx-2">
+                {isLoading && (
+                    <div className="flex justify-center items-center h-[600px]">
+                        <Spinner size="lg" color="gray" />
+                    </div>
+                )}
                 {cartProducts.length === 0 && <EmptyCart />}
                 {cartProducts.map(product => (
-                <CartProduct
-                    key={product.id}
-                    product={product}
-                    handleQuantityChange={handleQuantityChange}
-                    handleRemoveFromCart={handleRemoveFromCart}
-                />
-            ))}
+                    <CartProduct
+                        key={product.id}
+                        product={product}
+                        handleQuantityChange={handleQuantityChange}
+                        handleRemoveFromCart={handleRemoveFromCart}
+                    />
+                ))}
             </div>
 
-            <div className="h-fit md:col-span-3 mx-2 col-span-7 bg-white border p-5 rounded-lg">
+            <div className="h-fit xl:mr-10 md:col-span-3 mx-2 col-span-7 bg-white border p-5 rounded-lg">
                 <div className="bg-black h-[200px] mb-5 rounded-lg p-5 flex items-center">
                     <div>
                         <h2 className="text-1xl font-semibold text-gray-400">Valor total</h2>
@@ -110,7 +114,6 @@ const ShoppingCart = () => {
                         </span>
                     </Alert>
                 )}
-
             </div>
             <ConfirmPaymentModal
                 openModal={openModal}

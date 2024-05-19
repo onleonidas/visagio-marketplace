@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { ProductsProps } from '../types/ProductsInterface';
 import { CartItemProps } from '../types/CartItemInterface';
 import { apiUrls } from '../config/apiUrls';
@@ -19,7 +19,6 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-
 /**
  * Provides the cart context for managing cart items and catalog items.
  */
@@ -36,39 +35,41 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     /**
      * Fetches the cart items from the server.
      */
-    const fetchCartItems = async () => {
+    const fetchCartItems = useCallback(async () => {
         try {
             const response = await fetch(apiUrls.cart);
             if (!response.ok) {
-                throw new Error('Error fetching cart items');
+                console.warn('Erro ao buscar produtos do carrinho');
+                return;
             }
             const data = await response.json();
             setCartItems(data);
         } catch (error) {
-            console.error('Error fetching cart items:', error);
+            console.error('Erro ao buscar produtos do carrinho:', error);
         }
-    };
+    }, []);
 
     /**
      * Fetches the catalog items from the server.
      */
-    const fetchCatalogItems = async () => {
+    const fetchCatalogItems = useCallback(async () => {
         try {
             const response = await fetch(apiUrls.products);
             if (!response.ok) {
-                throw new Error('Error fetching catalog items');
+                console.warn('Erro ao buscar produtos no catálogo');
+                return;
             }
             const data = await response.json();
             setCatalogItems(data);
         } catch (error) {
-            console.error('Error fetching catalog items:', error);
+            console.warn('Erro ao encontrar os produtos do catálogo:', error);
         }
-    }
+    }, []);
 
     /**
      * Clears the cart by removing all items from it.
      */
-    const clearCart = async () => {
+    const clearCart = useCallback(async () => {
         try {
             for (const item of cartItems) {
                 await removeFromCart(item.id);
@@ -78,14 +79,14 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         } catch (error) {
             console.error('Error clearing cart:', error);
         }
-    };
+    }, [cartItems, stockControl]);
 
     /**
      * Adds an item to the cart.
      * @param product - The item to be added to the cart.
      * @param addToast - A function that displays a success or error toast.
      */
-    const addToCart = async (product: ProductsProps["product"], addToast: (message: string) => void) => {
+    const addToCart = useCallback(async (product: ProductsProps["product"], addToast: (message: string) => void) => {
         try {
             const existingItem = cartItems.find(cartItem => cartItem.id === product.id);
             if (existingItem) {
@@ -101,18 +102,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 };
                 await addCartItem(newItem);
             }
-            addToast(`${product.name} added to cart successfully!`);
+            addToast(`${product.name} adicionado ao carrinho com sucesso!`);
         } catch (error) {
             console.error('Error adding item to cart:', error);
-            addToast('Error adding item to cart');
+            addToast('Erro ao adicionar ao carrinho.');
         }
-    };
+    }, [cartItems]);
 
     /**
      * Adds an item to the cart.
      * @param item - The item to be added to the cart.
      */
-    const addCartItem = async (item: CartItemProps) => {
+    const addCartItem = useCallback(async (item: CartItemProps) => {
         try {
             const response = await fetch(apiUrls.cart, {
                 method: 'POST',
@@ -122,24 +123,26 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 body: JSON.stringify(item),
             });
             if (!response.ok) {
-                throw new Error('Error adding item to cart');
+                console.warn('Error adding item to cart');
+                return;
             }
             setCartItems(prevCartItems => [...prevCartItems, item]);
         } catch (error) {
             console.error('Error adding item to cart:', error);
         }
-    };
+    }, []);
 
     /**
      * Updates the quantity of an item in the cart.
      * @param itemId - The id of the item to be updated.
      * @param quantity - The new quantity of the item.
      */
-    const updateCartItem = async (itemId: number, quantity: number) => {
+    const updateCartItem = useCallback(async (itemId: number, quantity: number) => {
         try {
             const itemToUpdate = cartItems.find(cartItem => cartItem.id === itemId);
             if (!itemToUpdate) {
-                throw new Error('Item not found in cart');
+                console.warn('O item não existe no carrinho');
+                return;
             }
             const updatedItem = { ...itemToUpdate, quantity };
             const response = await fetch(`${apiUrls.cart}${itemId}`, {
@@ -150,25 +153,27 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 body: JSON.stringify(updatedItem),
             });
             if (!response.ok) {
-                throw new Error('Error updating item in cart');
+                console.warn('Erro ao atualizar o item no carrinho');
+                return;
             }
             setCartItems(prevCartItems => prevCartItems.map(item => item.id === itemId ? updatedItem : item));
         } catch (error) {
-            console.error('Error updating item in cart:', error);
+            console.error('Erro ao atualizar o item no carrinho:', error);
         }
-    };
+    }, [cartItems]);
 
     /**
      * Removes an item from the cart.
      * @param itemId - The id of the item to be removed.
      */
-    const removeFromCart = async (itemId: number) => {
+    const removeFromCart = useCallback(async (itemId: number) => {
         try {
             const response = await fetch(`${apiUrls.cart}${itemId}`, {
                 method: 'DELETE',
             });
             if (!response.ok) {
-                throw new Error('Error removing item from cart');
+                console.warn('Erro ao remover o item do carrinho');
+                return;
             }
             setCartItems(prevCartItems =>
                 prevCartItems.filter(item => item.id !== itemId)
@@ -176,7 +181,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         } catch (error) {
             console.error('Error removing item from cart:', error);
         }
-    };
+    }, []);
 
     /**
      * Updates the quantity of an item in the cart and checks if the quantity exceeds the available stock.
@@ -184,25 +189,35 @@ export const CartProvider = ({ children }: CartProviderProps) => {
      * @param quantity - The new quantity of the item.
      * @param addToast - A function that displays a success or error toast.
      */
-    const updateCartItemQuantity = async (item: CartItemProps, quantity: number, addToast: (message: string) => void) => {
+    const updateCartItemQuantity = useCallback(async (item: CartItemProps, quantity: number, addToast: (message: string) => void) => {
         try {
             const response = await fetch(`${apiUrls.products}${item.id}`);
             if (!response.ok) {
-                throw new Error('Error fetching product');
+                console.warn('Erro ao buscar produtos no catálogo');
+                return;
             }
             const product: ProductsProps["product"] = await response.json();
             if (quantity > product.stock) {
-                addToast(`We only have ${product.stock} ${item.name} in stock. The excess will not be added to your purchase.`);
+                addToast(`Nós temos apenas ${product.stock} ${item.name} no estoque. O excedente não será considerado em sua compra.`);
                 return;
             }
             await updateCartItem(item.id, quantity);
         } catch (error) {
             console.error('Error updating item quantity in cart:', error);
         }
-    };
+    }, [updateCartItem]);
+
+    const value = useMemo(() => ({
+        cartItems,
+        catalogItems,
+        addToCart,
+        removeFromCart,
+        updateCartItemQuantity,
+        clearCart
+    }), [cartItems, catalogItems, addToCart, removeFromCart, updateCartItemQuantity, clearCart]);
 
     return (
-        <CartContext.Provider value={{ cartItems, catalogItems, addToCart, removeFromCart, updateCartItemQuantity, clearCart }}>
+        <CartContext.Provider value={value}>
             {children}
         </CartContext.Provider>
     );

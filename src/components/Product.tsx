@@ -10,7 +10,7 @@ export const Product = ({ product }: ProductsProps) => {
   const { addToast } = useToast();
   const { addToCart } = useCart();
 
-  // Added product to cart
+  // Add product to cart
   const handleAddToCart = (product: ProductsProps["product"]) => {
     addToCart(product, addToast);
   };
