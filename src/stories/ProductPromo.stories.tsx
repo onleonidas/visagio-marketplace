@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta } from '@storybook/react'
 import { ProductPromo } from "../components/ProductPromo";
 import { BrowserRouter as Router } from 'react-router-dom';
 

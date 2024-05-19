@@ -1,6 +1,5 @@
 import { Meta } from '@storybook/react';
 import { CartProduct } from '../components/CartProduct';
-import { CartItemProps } from '../types/CartItemInterface';
 
 export default {
   title: 'Components/CartProduct',
@@ -11,6 +10,7 @@ export default {
 
 /**Função responsável por remover um determinado item do carrinho.*/
 const handleRemoveFromCart = (id: number) => {};
+
 
 /**Função responsável por verificar se o carrinho possui itens antes de continuar com a compra*/
 const handleQuantityChange = () => {};

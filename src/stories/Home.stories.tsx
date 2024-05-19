@@ -4,16 +4,6 @@ import { ToastProvider } from '../context/ToastContext';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from '../context/CartContext';
 
-const productData = {
-  id: 1,
-  name: 'Sample Product',
-  price: 100,
-  category: 'Sample Category',
-  imageUrl: 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg',
-  stock: 10,
-  description: ''
-};
-
 export default {
   title: "Pages/Home",
   component: Home,
