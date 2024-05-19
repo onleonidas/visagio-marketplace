@@ -1,9 +1,13 @@
+# Este readme é apenas um guia de execução, você pode acessar a documentação completa no link abaixo:
+[Documentação completa](https://spectacled-shallot-adb.notion.site/Documenta-o-detalhada-Vstore-74a2261572e24ac4939e770a181f114d)
+
 # Como executar a aplicação
 
 Este guia irá orientá-lo sobre como executar uma aplicação React escrita em TypeScript usando Vite. Vite é um construtor de aplicações web extremamente rápido e simples, que visa proporcionar um tempo de desenvolvimento rápido. 🚀
 
 ## Caso você não queira rodar localmente, você pode acessar o link abaixo.
-[Versão on vercel]()
+[Versão on vercel](https://visagio-marketplace-git-main-michel-leonidas-projects.vercel.app/)
+Alguns erros podem ser comuns no Vercel, mas aparentemente o deploy não resultou em muitas inconsistências.
 
 ## Pré-requisitos
 
