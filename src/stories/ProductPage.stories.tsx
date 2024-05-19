@@ -1,13 +1,13 @@
 import React from 'react';
-import { Story } from '@storybook/react';
-import { ProductPage } from '../pages/ProductPage';
+import { StoryFn } from '@storybook/react';
+import ProductPage from '../pages/ProductPage';
 
 export default {
-  title: 'Paes/ProductPage',
+  title: 'Pages/ProductPage',
   component: ProductPage,
 };
 
-const Template: Story = () => <ProductPage />;
+const Template: StoryFn = () => <ProductPage />;
 
 export const Default = Template.bind({});
 Default.args = {

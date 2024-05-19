@@ -9,13 +9,22 @@ export default {
 
 } as Meta;
 
-const productData: CartItemProps = {
+/**Função responsável por remover um determinado item do carrinho.*/
+const handleRemoveFromCart = (id: number) => {};
+
+/**Função responsável por verificar se o carrinho possui itens antes de continuar com a compra*/
+const handleQuantityChange = () => {};
+
+const productData = {
   id: 1,
   name: 'Sample Product',
   unit_price: 100,
   imageUrl: 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg',
   description: '',
-  quantity: 1
+  quantity: 1,
+  handleQuantityChange: () => {},
+  handleRemoveFromCart: () => {}
 };
 
-export const Default = () => <CartProduct product={productData} />;
+export const Default = () => <CartProduct product={productData} handleQuantityChange={handleQuantityChange}
+handleRemoveFromCart={handleRemoveFromCart} />;

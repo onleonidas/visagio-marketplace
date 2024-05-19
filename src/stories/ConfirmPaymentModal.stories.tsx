@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { ConfirmPaymentModal } from "../components/ConfirmPaymentModal";
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../context/CartContext';
 
 export default {
     title: "Components/ConfirmPaymentModal",
@@ -9,7 +10,9 @@ export default {
         (Story) => {
             return (
                 <BrowserRouter>
-                    <Story />
+                    <CartProvider>
+                        <Story />
+                    </CartProvider>
                 </BrowserRouter>
             )
         }

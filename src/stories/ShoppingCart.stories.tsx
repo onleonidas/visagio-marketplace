@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 import ShoppingCart from "../pages/ShoppingCart";
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../context/CartContext';
+import { ToastProvider } from '../context/ToastContext';
 
 export default {
     title: "Pages/ShoppingCart",
@@ -10,9 +12,13 @@ export default {
             return (
                 <div className=''>
                     <BrowserRouter>
-                        <div className=''>
-                            <Story />
-                        </div>
+                        <CartProvider>
+                            <ToastProvider>
+                            <div className=''>
+                                <Story />
+                            </div>
+                            </ToastProvider>
+                        </CartProvider>
                     </BrowserRouter>
                 </div>
             )

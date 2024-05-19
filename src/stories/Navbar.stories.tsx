@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Navbar } from "../components/Navbar";
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../context/CartContext';
 
 export default {
     title: "Components/Navbar",
@@ -9,8 +10,10 @@ export default {
         (Story) => {
             return (
                 <BrowserRouter>
-                    <Story />
-                </BrowserRouter>
+                    <CartProvider>
+                        <Story />
+                    </CartProvider >
+                </BrowserRouter >
             )
         }
     ]

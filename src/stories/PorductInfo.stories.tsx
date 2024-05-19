@@ -2,6 +2,7 @@ import { Meta } from '@storybook/react'
 import { ProductInfos } from '../components/ProductInfos'
 import { ToastProvider } from '../context/ToastContext';
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../context/CartContext';
 
 export default {
   title: 'Components/ProductInfos',
@@ -11,9 +12,11 @@ export default {
       return (
         <ToastProvider>
           <BrowserRouter>
-            <div className='w-[500px]'>
-              <Story />
-            </div>
+            <CartProvider>
+              <div className='w-[500px]'>
+                <Story />
+              </div>
+            </CartProvider>
           </BrowserRouter>
         </ToastProvider>
       )
