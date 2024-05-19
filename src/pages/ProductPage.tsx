@@ -29,7 +29,7 @@ const ProductPage = () => {
 
   return (
     <div>
-      {loading && <p>Loading banners...</p>}
+      {loading && <p>Loading page...</p>}
       {error && <p>{error}</p>}
       {!loading && !error && product &&
         <>

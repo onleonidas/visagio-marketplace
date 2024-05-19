@@ -169,22 +169,5 @@
       "link": "https://images.unsplash.com/photo-1553179459-4514c0f52f41?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "name": "iPhone 13 Pro",
-      "unit_price": 9499,
-      "description": "O iPhone 13 Pro vem com uma tela Super Retina XDR de 6.1 polegadas e armazenamento de 128GB.",
-      "imageUrl": "https://blackphonestorec.com/wp-content/uploads/2023/01/14promax2-300x300.png",
-      "quantity": 1
-    },
-    {
-      "id": "2",
-      "name": "MacBook Air M1",
-      "unit_price": 10499,
-      "description": "O MacBook Air com chip M1 da Apple oferece performance incrível com 16GB de RAM e 512GB de SSD.",
-      "imageUrl": "https://leoscherer.com.br/wp-content/uploads/2022/06/Macbook-Air-M1-SPACE-GRAY.png",
-      "quantity": 3
-    }
-  ]
+  "cart": []
 }

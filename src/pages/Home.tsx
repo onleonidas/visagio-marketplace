@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../components/Product';
 import { Header } from '../components/Header';
-import { Pagination, Spinner } from 'flowbite-react';
+import { Pagination } from 'flowbite-react';
 import { useCart } from '../context/CartContext';
 
 

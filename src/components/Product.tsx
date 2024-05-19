@@ -35,6 +35,7 @@ export const Product = ({ product }: ProductsProps) => {
 
         {stock > 0 &&
           <button onClick={() => handleAddToCart(product)}
+            data-testid="add-to-cart-button"
             className='below-sm:h-10 below-sm:w-10 hover:shadow-md border text-[19px] flex items-center justify-center rounded-lg h-12 w-12 text-black'>
             <TbShoppingCartPlus />
           </button>
